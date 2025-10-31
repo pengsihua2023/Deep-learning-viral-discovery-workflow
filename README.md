@@ -6,6 +6,10 @@ Designed for broad sequencing compatibility, the pipeline supports both short-re
 
 Overall, this workflow provides a unified AI-enhanced framework for comprehensive viral discovery, facilitating large-scale exploration of viral diversity from complex metagenomic samples.
 
+## Highlights
+
+The workflow is well-suited for novel virus discovery and low-abundance detection, supporting both DNA and RNA viruses (RNA virus identification primarily depends on VirSorter2).
+
 ## Overview
 
 This workflow integrates state-of-the-art tools for metagenomic viral sequence identification:
@@ -464,6 +468,7 @@ or by Email: sihua.peng@uga.edu
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
