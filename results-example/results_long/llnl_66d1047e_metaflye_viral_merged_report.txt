@@ -1,0 +1,13 @@
+================================================================================
+Viral Identification Comprehensive Analysis Report - metaFlye Assembly Results
+VirSorter2 + DeepVirFinder
+================================================================================
+
+[Overall Statistics]
+--------------------------------------------------------------------------------
+VirSorter2 identified viral sequences:    29
+DeepVirFinder identified viral sequences: 1,213
+Consensus viral sequences (both tools):   29
+VirSorter2 only:                          0
+DeepVirFinder only:                       1,184
+
