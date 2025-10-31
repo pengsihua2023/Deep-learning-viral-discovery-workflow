@@ -1,8 +1,8 @@
 ## Selected result files
 The 9 files are the files in the follwing directories:    
-- "./results_short/assembler_comparison/",   
-- "./results_short/merged_viral_reports_megahit/"   
-- and "./results_short/merged_viral_reports_spades/".  
+- ./results_short/assembler_comparison/,   
+- ./results_short/merged_viral_reports_megahit/,   
+- and ./results_short/merged_viral_reports_spades/.  
 
 
 ## a screenshot of the Illumina data analysis
