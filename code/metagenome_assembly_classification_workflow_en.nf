@@ -22,13 +22,13 @@ params.input = null
 params.outdir = './results'
 params.help = false
 // Long-read support
-params.longread = false                 // 是否启用长读段分支（PacBio/Nanopore）
-params.longread_platform = 'nano'       // 长读段平台: 'nano' 或 'pacbio'
-params.skip_longread_qc = true          // 是否跳过长读段质控（默认跳过）
-// viralFlye 精修分支
-params.enable_viralflye = false         // 是否启用 viralFlye 定向精修（默认关闭）
-params.viralflye_min_score = 0.5        // 选择目标 contig 的最小 VirSorter2 分数
-params.viralflye_min_length = 1000      // 选择目标 contig 的最小长度（bp）
+params.longread = false                 // Enable long-read branch (PacBio/Nanopore)
+params.longread_platform = 'nano'       // Long-read platform: 'nano' or 'pacbio'
+params.skip_longread_qc = true          // Skip long-read QC (default: skip)
+// viralFlye refinement branch
+params.enable_viralflye = false         // Enable viralFlye targeted refinement (default: disabled)
+params.viralflye_min_score = 0.5        // Minimum VirSorter2 score for target contig selection
+params.viralflye_min_length = 1000      // Minimum length for target contig selection (bp)
 
 // Workflow control
 params.skip_virsorter2 = false    // Whether to skip VirSorter2 viral identification
@@ -207,9 +207,9 @@ Result Merging:
 """
 }
 
-// 根据模式创建输入通道（短读段或长读段）
+// Create input channels based on mode (short-read or long-read)
 if (!params.longread) {
-    // 短读段：期望样表包含 fastq_1 与 fastq_2
+    // Short-read: expects samplesheet with fastq_1 and fastq_2
     Channel
         .fromPath(params.input)
         .splitCsv(header: true)
@@ -221,12 +221,12 @@ if (!params.longread) {
         }
         .set { ch_reads }
 } else {
-    // 长读段：期望样表包含 fastq_long（Nanopore 或 PacBio 单端 FASTQ）
+    // Long-read: expects samplesheet with fastq_long (Nanopore or PacBio single-end FASTQ)
     Channel
         .fromPath(params.input)
         .splitCsv(header: true)
         .filter { row ->
-            // 过滤空行：检查样本名和路径是否为空
+            // Filter empty rows: check if sample name and path are not empty
             def sample = row.sample?.trim()
             def read_long = row.fastq_long?.trim()
             return sample && read_long && sample != '' && read_long != ''
@@ -248,15 +248,15 @@ if (!params.longread) {
         .filter { it != null }
         .set { ch_long_reads }
     
-    // 验证长读段输入通道
+    // Validate long-read input channel
     ch_long_reads.view { sample, reads -> "Long-read sample: ${sample}, reads: ${reads}" }
 }
 
 // Define workflow
 workflow {
     if (!params.longread) {
-        // 短读段流程
-        // 阶段0：QC（可选）
+        // Short-read workflow
+        // Stage 0: QC (optional)
         if (!params.skip_fastp) {
             FASTP (
                 ch_reads
@@ -266,7 +266,7 @@ workflow {
             ch_clean_reads = ch_reads
         }
 
-        // 阶段1：装配（MEGAHIT + metaSPAdes）
+        // Stage 1: Assembly (MEGAHIT + metaSPAdes)
         MEGAHIT_ASSEMBLY (
             ch_clean_reads
         )
@@ -275,7 +275,7 @@ workflow {
             ch_clean_reads
         )
 
-        // 阶段2：VirSorter2
+        // Stage 2: VirSorter2
         if (!params.skip_virsorter2) {
             VIRSORTER2_MEGAHIT (
                 MEGAHIT_ASSEMBLY.out.contigs,
@@ -288,7 +288,7 @@ workflow {
             )
         }
 
-        // 阶段3：DeepVirFinder
+        // Stage 3: DeepVirFinder
         if (!params.skip_deepvirfinder) {
             DEEPVIRFINDER_MEGAHIT (
                 MEGAHIT_ASSEMBLY.out.contigs
@@ -299,7 +299,7 @@ workflow {
             )
         }
 
-        // 阶段4：合并与比较（短读段两装配器）
+        // Stage 4: Merge and compare (short-read dual assemblers)
         if (!params.skip_merge_reports && !params.skip_virsorter2 && !params.skip_deepvirfinder) {
             VIRSORTER2_MEGAHIT.out.results
                 .join(DEEPVIRFINDER_MEGAHIT.out.results)
@@ -317,7 +317,7 @@ workflow {
                 ch_viral_spades
             )
 
-            // 阶段5：装配器比较
+            // Stage 5: Assembler comparison
             MERGE_VIRAL_REPORTS_MEGAHIT.out.merged_csv
                 .join(MERGE_VIRAL_REPORTS_SPADES.out.merged_csv)
                 .set { ch_assembler_comparison }
@@ -327,8 +327,8 @@ workflow {
             )
         }
     } else {
-        // 长读段流程
-        // 阶段0：长读段QC（可选）
+        // Long-read workflow
+        // Stage 0: Long-read QC (optional)
         if (!params.skip_longread_qc) {
             LONGREAD_QC (
                 ch_long_reads
@@ -338,12 +338,12 @@ workflow {
             ch_long_clean = ch_long_reads
         }
 
-        // 阶段1：metaFlye 装配（--meta）
+        // Stage 1: metaFlye assembly (--meta mode)
         METAFLYE_ASSEMBLY (
             ch_long_clean
         )
 
-        // 阶段2：VirSorter2（基于 metaFlye 装配的 contigs）
+        // Stage 2: VirSorter2 (based on metaFlye assembly contigs)
         if (!params.skip_virsorter2) {
             VIRSORTER2_METAFLYE (
                 METAFLYE_ASSEMBLY.out.contigs,
@@ -351,14 +351,14 @@ workflow {
             )
         }
 
-        // 阶段3：DeepVirFinder（基于 metaFlye 装配的 contigs）
+        // Stage 3: DeepVirFinder (based on metaFlye assembly contigs)
         if (!params.skip_deepvirfinder) {
             DEEPVIRFINDER_METAFLYE (
                 METAFLYE_ASSEMBLY.out.contigs
             )
         }
 
-        // 阶段4：合并（单装配器：metaFlye）
+        // Stage 4: Merge (single assembler: metaFlye)
         if (!params.skip_merge_reports && !params.skip_virsorter2 && !params.skip_deepvirfinder) {
             VIRSORTER2_METAFLYE.out.results
                 .join(DEEPVIRFINDER_METAFLYE.out.results)
@@ -369,16 +369,16 @@ workflow {
             )
         }
 
-        // 阶段5（可选）：viralFlye 精修分支
+        // Stage 5 (optional): viralFlye refinement branch
         if (params.enable_viralflye && !params.skip_virsorter2) {
-            // 5.1 选择目标病毒 contigs（基于 VS2 分数与长度阈值）
+            // 5.1 Select target viral contigs (based on VS2 score and length thresholds)
             SELECT_VIRAL_TARGETS_METAFLYE (
                 METAFLYE_ASSEMBLY.out.contigs,
                 VIRSORTER2_METAFLYE.out.results
             )
 
-            // 5.2 将长读段与目标 contigs 对齐并抽取相关 reads
-            // join 样本名以合并 QC 后的长读段与目标 contigs
+            // 5.2 Map long reads to target contigs and extract relevant reads
+            // Join by sample name to combine QC'd long reads with target contigs
             ch_long_clean
                 .join(SELECT_VIRAL_TARGETS_METAFLYE.out.targets)
                 .set { ch_targets_with_reads }
@@ -387,12 +387,12 @@ workflow {
                 ch_targets_with_reads
             )
 
-            // 5.3 使用（viral）Flye 对选中的 reads 进行定向重装
+            // 5.3 Use (viral) Flye for targeted reassembly of selected reads
             VIRALFLYE_REASSEMBLY (
                 SUBSET_LONGREADS_FOR_VIRAL.out.selected_reads
             )
 
-            // 5.4 在精修 contigs 上再次进行病毒注释
+            // 5.4 Re-annotate refined contigs with viral identification
             if (!params.skip_virsorter2) {
                 VIRSORTER2_VIRALFLYE (
                     VIRALFLYE_REASSEMBLY.out.refined_contigs,
@@ -467,7 +467,7 @@ process FASTP {
     """
 }
 
-// 进程：长读段QC（可选，简化：当前直接拷贝输入，预留对接 Filtlong/NanoFilt）
+// Process: Long-read QC (optional, simplified: currently copies input directly, reserved for Filtlong/NanoFilt integration)
 process LONGREAD_QC {
     tag "${sample}"
     label 'process_medium'
@@ -481,9 +481,9 @@ process LONGREAD_QC {
 
     script:
     """
-    echo "=== 长读段QC（占位实现）：${sample} ==="
-    # 目前默认跳过复杂过滤，仅标准化输出文件名，便于后续流程
-    # 如需严格QC，可在此处集成 Filtlong 或 NanoFilt
+    echo "=== Long-read QC (placeholder implementation): ${sample} ==="
+    # Currently skips complex filtering by default, only standardizes output filename for downstream workflow
+    # For strict QC, integrate Filtlong or NanoFilt here
     if [[ "${read_long}" == *.gz ]]; then
         cp ${read_long} ${sample}_long_clean.fastq.gz
     else
@@ -555,7 +555,7 @@ process SPADES_ASSEMBLY {
     """
 }
 
-// 进程：metaFlye 装配（长读段，启用 --meta）
+// Process: metaFlye assembly (long-read, --meta mode enabled)
 process METAFLYE_ASSEMBLY {
     tag "${sample}_metaFlye"
     label 'process_high'
@@ -570,7 +570,7 @@ process METAFLYE_ASSEMBLY {
 
     script:
     """
-    echo "=== metaFlye 装配：${sample} ==="
+    echo "=== metaFlye assembly: ${sample} ==="
     if [ "${params.longread_platform}" = "pacbio" ]; then
         PLATFORM_FLAG="--pacbio-raw"
     else
@@ -585,7 +585,7 @@ process METAFLYE_ASSEMBLY {
 
     cp flye_output/assembly.fasta ${sample}_metaflye_contigs.fa
 
-    echo "metaFlye: 生成 \$(grep -c ">" ${sample}_metaflye_contigs.fa) 条 contigs"
+    echo "metaFlye: Generated \$(grep -c ">" ${sample}_metaflye_contigs.fa) contigs"
     """
 }
 
@@ -695,7 +695,7 @@ process VIRSORTER2_SPADES {
     """
 }
 
-// 进程：VirSorter2（metaFlye 装配产物）
+// Process: VirSorter2 (metaFlye assembly products)
 process VIRSORTER2_METAFLYE {
     tag "${sample}_metaFlye_VirSorter2"
     label 'process_high'
@@ -732,7 +732,7 @@ process VIRSORTER2_METAFLYE {
         cp virsorter2_output/final-viral-boundary.tsv ${sample}_metaflye_vs2_final-viral-boundary.tsv
     fi
     VIRAL_COUNT=\$(tail -n +2 ${sample}_metaflye_vs2_final-viral-score.tsv | wc -l || echo 0)
-    echo "VirSorter2: 识别到 \${VIRAL_COUNT} 条病毒序列（metaFlye）"
+    echo "VirSorter2: Identified \${VIRAL_COUNT} viral sequences (metaFlye)"
     """
 }
 
@@ -926,7 +926,7 @@ process DEEPVIRFINDER_SPADES {
     """
 }
 
-// 进程：DeepVirFinder（metaFlye 装配产物）
+// Process: DeepVirFinder (metaFlye assembly products)
 process DEEPVIRFINDER_METAFLYE {
     tag "${sample}_metaFlye_DeepVirFinder"
     label 'process_high'
@@ -946,11 +946,11 @@ process DEEPVIRFINDER_METAFLYE {
     module load Miniforge3/24.11.3-0 2>/dev/null || true
     DVF_ENV="/home/sp96859/.conda/envs/dvf"
     if [ ! -d "\$DVF_ENV" ]; then
-        echo "❌ dvf 环境未找到: \$DVF_ENV"; exit 1; fi
+        echo "❌ DVF environment not found: \$DVF_ENV"; exit 1; fi
     CONDA_BASE=\$(conda info --base 2>/dev/null)
     [ -z "\$CONDA_BASE" ] && CONDA_BASE="/apps/eb/Miniforge3/24.11.3-0"
-    if [ -f "\$CONDA_BASE/etc/profile.d/conda.sh" ]; then source "\$CONDA_BASE/etc/profile.d/conda.sh"; else echo "❌ 无法找到 conda.sh"; exit 1; fi
-    conda activate "\$DVF_ENV" || { echo "❌ 激活 dvf 失败"; exit 1; }
+    if [ -f "\$CONDA_BASE/etc/profile.d/conda.sh" ]; then source "\$CONDA_BASE/etc/profile.d/conda.sh"; else echo "❌ Cannot find conda.sh"; exit 1; fi
+    conda activate "\$DVF_ENV" || { echo "❌ Failed to activate dvf environment"; exit 1; }
     export PATH="\$DVF_ENV/bin:\$PATH"; export CONDA_PREFIX="\$DVF_ENV"; export CONDA_DEFAULT_ENV="dvf"
     unset PYTHONPATH
     PYTHON_VER=\$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
@@ -964,7 +964,7 @@ process DEEPVIRFINDER_METAFLYE {
         -c ${task.cpus}
     cp dvf_output/${contigs}_gt${params.deepvirfinder_min_length}bp_dvfpred.txt ${sample}_metaflye_dvf_output.txt
     VIRAL_COUNT=\$(awk -v pval="${params.deepvirfinder_pvalue}" 'NR>1 && \$3<pval {count++} END {print count+0}' ${sample}_metaflye_dvf_output.txt)
-    echo "DeepVirFinder: 预测到 \${VIRAL_COUNT} 条病毒序列（metaFlye，p<${params.deepvirfinder_pvalue}})"
+    echo "DeepVirFinder: Predicted \${VIRAL_COUNT} viral sequences (metaFlye, p<${params.deepvirfinder_pvalue})"
     """
 }
 // Process: Merge Viral Identification Reports for MEGAHIT
@@ -1326,7 +1326,7 @@ process MERGE_VIRAL_REPORTS_SPADES {
     """
 }
 
-// 进程：合并（metaFlye）——整合 VirSorter2 与 DeepVirFinder 结果
+// Process: Merge (metaFlye) - Integrate VirSorter2 and DeepVirFinder results
 process MERGE_VIRAL_REPORTS_METAFLYE {
     tag "${sample}_metaFlye"
     label 'process_low'
@@ -1436,7 +1436,7 @@ PYTHON_SCRIPT
     """
 }
 
-// 进程：选择 VS2 阈值以上的目标病毒 contigs，并导出子集 FASTA
+// Process: Select target viral contigs above VS2 threshold and export subset FASTA
 process SELECT_VIRAL_TARGETS_METAFLYE {
     tag "${sample}_select_targets"
     label 'process_low'
@@ -1456,7 +1456,7 @@ process SELECT_VIRAL_TARGETS_METAFLYE {
 
     script:
     """
-    echo "=== 选择病毒目标 contigs：${sample} ==="
+    echo "=== Select viral target contigs: ${sample} ==="
     python - << 'PY'
 import pandas as pd, sys
 vs2 = pd.read_csv("${vs2_scores}", sep='\t')
@@ -1468,17 +1468,17 @@ for _, r in vs2[ok].iterrows():
     ids.append(name)
 open("${sample}_viral_target_ids.txt", 'w').write('\n'.join(ids)+'\n')
 PY
-    # 用 seqkit 提取目标 contigs
+    # Use seqkit to extract target contigs
     if [ -s ${sample}_viral_target_ids.txt ]; then
         seqkit grep -f ${sample}_viral_target_ids.txt ${contigs} > ${sample}_viral_targets.fa
     else
-        # 若无目标，生成空文件避免中断
+        # If no targets, create empty file to avoid interruption
         echo > ${sample}_viral_targets.fa
     fi
     """
 }
 
-// 进程：对目标 contigs 进行 minimap2 比对并用 samtools 抽取相关 reads
+// Process: Map long reads to target contigs using minimap2 and extract relevant reads using samtools
 process SUBSET_LONGREADS_FOR_VIRAL {
     tag "${sample}_subset_reads"
     label 'process_medium'
@@ -1493,13 +1493,13 @@ process SUBSET_LONGREADS_FOR_VIRAL {
 
     script:
     """
-    echo "=== 抽取病毒相关 reads：${sample} ==="
+    echo "=== Extract viral-related reads: ${sample} ==="
     if [ "${params.longread_platform}" = "pacbio" ]; then
         PLATFORM_OPT="map-pb"
     else
         PLATFORM_OPT="map-ont"
     fi
-    # 生成 SAM 并提取比对上的 reads 到 FASTQ
+    # Generate SAM and extract mapped reads to FASTQ
     minimap2 -t ${task.cpus} -x \${PLATFORM_OPT} -a ${targets_fa} ${read_long} \\
       | samtools view -b -F 4 -@ ${task.cpus} \\
       | samtools fastq -@ ${task.cpus} -n - \\
@@ -1507,7 +1507,7 @@ process SUBSET_LONGREADS_FOR_VIRAL {
     """
 }
 
-// 进程：viralFlye 定向重装（此处使用 Flye 实现定向 reassembly）
+// Process: viralFlye targeted reassembly (using Flye for targeted reassembly)
 process VIRALFLYE_REASSEMBLY {
     tag "${sample}_viralFlye"
     label 'process_high'
@@ -1522,7 +1522,7 @@ process VIRALFLYE_REASSEMBLY {
 
     script:
     """
-    echo "=== viralFlye 定向重装：${sample} ==="
+    echo "=== viralFlye targeted reassembly: ${sample} ==="
     if [ "${params.longread_platform}" = "pacbio" ]; then
         PLATFORM_FLAG="--pacbio-raw"
     else
@@ -1530,11 +1530,11 @@ process VIRALFLYE_REASSEMBLY {
     fi
     flye \${PLATFORM_FLAG} ${viral_reads} --out-dir viralflye_out --threads ${task.cpus} --meta
     cp viralflye_out/assembly.fasta ${sample}_viralflye_contigs.fa
-    echo "viralFlye: 生成 \$(grep -c ">" ${sample}_viralflye_contigs.fa) 条 contigs"
+    echo "viralFlye: Generated \$(grep -c ">" ${sample}_viralflye_contigs.fa) contigs"
     """
 }
 
-// 进程：VirSorter2（viralFlye 精修 contigs）
+// Process: VirSorter2 (viralFlye refined contigs)
 process VIRSORTER2_VIRALFLYE {
     tag "${sample}_viralFlye_VS2"
     label 'process_high'
@@ -1562,7 +1562,7 @@ process VIRSORTER2_VIRALFLYE {
     """
 }
 
-// 进程：DeepVirFinder（viralFlye 精修 contigs）
+// Process: DeepVirFinder (viralFlye refined contigs)
 process DEEPVIRFINDER_VIRALFLYE {
     tag "${sample}_viralFlye_DVF"
     label 'process_high'
@@ -1576,14 +1576,14 @@ process DEEPVIRFINDER_VIRALFLYE {
 
     script:
     """
-    echo "=== DeepVirFinder（viralFlye）：${sample} ==="
+    echo "=== DeepVirFinder (viralFlye): ${sample} ==="
     set +u
     module load Miniforge3/24.11.3-0 2>/dev/null || true
     DVF_ENV="/home/sp96859/.conda/envs/dvf"
-    [ -d "\$DVF_ENV" ] || { echo "❌ dvf 环境未找到: \$DVF_ENV"; exit 1; }
+    [ -d "\$DVF_ENV" ] || { echo "❌ DVF environment not found: \$DVF_ENV"; exit 1; }
     CONDA_BASE=\$(conda info --base 2>/dev/null); [ -z "\$CONDA_BASE" ] && CONDA_BASE="/apps/eb/Miniforge3/24.11.3-0"
-    [ -f "\$CONDA_BASE/etc/profile.d/conda.sh" ] && source "\$CONDA_BASE/etc/profile.d/conda.sh" || { echo "❌ 无法找到 conda.sh"; exit 1; }
-    conda activate "\$DVF_ENV" || { echo "❌ 激活 dvf 失败"; exit 1; }
+    [ -f "\$CONDA_BASE/etc/profile.d/conda.sh" ] && source "\$CONDA_BASE/etc/profile.d/conda.sh" || { echo "❌ Cannot find conda.sh"; exit 1; }
+    conda activate "\$DVF_ENV" || { echo "❌ Failed to activate dvf environment"; exit 1; }
     export PATH="\$DVF_ENV/bin:\$PATH"; unset PYTHONPATH; export KERAS_BACKEND=theano
     set -u
     python ${params.deepvirfinder_dir}/dvf.py -i ${contigs} -o dvf_out -l ${params.deepvirfinder_min_length} -c ${task.cpus}
@@ -1591,7 +1591,7 @@ process DEEPVIRFINDER_VIRALFLYE {
     """
 }
 
-// 进程：合并（viralFlye 精修产物）
+// Process: Merge (viralFlye refined products)
 process MERGE_VIRAL_REPORTS_VIRALFLYE {
     tag "${sample}_viralFlye"
     label 'process_low'
