@@ -9,7 +9,8 @@ Overall, this workflow provides a unified AI-enhanced framework for comprehensiv
 ## Highlights
 
 - The workflow is well-suited for novel virus discovery and low-abundance detection, supporting both DNA and RNA viruses (RNA virus identification primarily depends on VirSorter2).  
-- Notably, this workflow does not provide specific taxonomic classification information (e.g., TaxID); it only identifies the presence of viral sequences, which may correspond to either known or previously uncharacterized viruses. For known viruses, if detailed taxonomic identifiers (TaxIDs) are required, additional downstream taxonomic classification analyses should be conducted.
+- Notably, this workflow does not provide specific taxonomic classification information (e.g., TaxID); it only identifies the presence of viral sequences, which may correspond to either known or previously uncharacterized viruses.  
+- For known viruses, if detailed taxonomic identifiers (TaxIDs) are required, additional downstream taxonomic classification analyses should be conducted.
 
 ## Overview
 
@@ -470,6 +471,7 @@ For collaboration inquiries, please contact **Dr. Justin Bahl** (justin.bahl@uga
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
