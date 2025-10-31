@@ -463,11 +463,13 @@ Documentation and figures are released under CC BY 4.0.
 ## Contact
 
 For questions or issues, please [open an issue](https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/issues)   
-or by Email: sihua.peng@uga.edu  
+For technical questions or issues, please [open an issue](https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/issues)  or email **Sihua Peng** (sihua.peng@uga.edu).  
+For collaboration inquiries, please contact **Dr. Justin Bahl** (justin.bahl@uga.edu).
 
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
