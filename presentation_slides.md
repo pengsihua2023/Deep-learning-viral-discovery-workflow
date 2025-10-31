@@ -1,14 +1,13 @@
-# Metagenome Viral Classification Workflow
-## AI-Powered Viral Discovery from Metagenomic Data
+# AI-Powered Viral Discovery from Metagenomic Data
 
 ---
 
 ## Slide 1: Title Slide
 **Title:** Metagenome Viral Classification Workflow  
 **Subtitle:** Machine Learning & Deep Learning Pipeline for Novel Virus Discovery  
-**Presenter:** [Your Name]  
-**Date:** [Date]  
-**Institution:** [Your Institution]
+**Presenter:** Sihua Peng  
+**Date:** 10/31/2025  
+**Institution:** University of Georgia
 
 ---
 
@@ -514,4 +513,5 @@ nextflow run workflow.nf \
 - Q&A: ~5-10 minutes
 
 **Total: ~20-25 minutes**
+
 
