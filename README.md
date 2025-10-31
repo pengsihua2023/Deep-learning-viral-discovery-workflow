@@ -443,8 +443,8 @@ If you use this workflow, please cite the following tools:
 
 This workflow should be cited as:
 
-[Sihua Peng et al.]. **Deep learning viral discovery workflow**. GitHub repository, 2025.
-Available at: https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow
+[Sihua Peng et al.]. **Deep learning viral discovery workflow**. GitHub repository, 2025.  
+Available at: https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow  
 
 ## Version
 
@@ -453,8 +453,8 @@ Available at: https://github.com/pengsihua2023/Deep-learning-viral-discovery-wor
 
 ## License
 
-This project is licensed under the MIT License
-Documentation and figures are released under CC BY 4.0
+This project is licensed under the MIT License.  
+Documentation and figures are released under CC BY 4.0.    
 
 ## Contact
 
@@ -463,6 +463,7 @@ For questions or issues, please [open an issue](https://github.com/your-repo/iss
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
