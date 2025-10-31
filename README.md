@@ -24,14 +24,14 @@ This workflow integrates state-of-the-art tools for metagenomic viral sequence i
 
 ## Features
 
-- ✅ **Dual Assembler Support** (short-reads): Parallel assembly with MEGAHIT and metaSPAdes
-- ✅ **Long-read Support**: Assembly using metaFlye for PacBio/Nanopore data
-- ✅ **Dual Viral Identification**: VirSorter2 + DeepVirFinder for comprehensive coverage
-- ✅ **Consensus Detection**: Identifies high-confidence viral sequences agreed upon by both tools
-- ✅ **Optional Refinement**: viralFlye for targeted reassembly of viral contigs from long-reads
-- ✅ **SLURM Compatible**: Optimized for HPC cluster environments
-- ✅ **Container Support**: Uses Apptainer/Singularity for reproducible execution
-- ✅ **Conda Integration**: Flexible tool installation via Conda environments
+- **Dual Assembler Support** (short-reads): Parallel assembly with MEGAHIT and metaSPAdes
+- **Long-read Support**: Assembly using metaFlye for PacBio/Nanopore data
+- **Dual Viral Identification**: VirSorter2 + DeepVirFinder for comprehensive coverage
+- **Consensus Detection**: Identifies high-confidence viral sequences agreed upon by both tools
+- **Optional Refinement**: viralFlye for targeted reassembly of viral contigs from long-reads
+- **SLURM Compatible**: Optimized for HPC cluster environments
+- **Container Support**: Uses Apptainer/Singularity for reproducible execution
+- **Conda Integration**: Flexible tool installation via Conda environments
 
 ## Requirements
 
@@ -468,6 +468,7 @@ or by Email: sihua.peng@uga.edu
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
