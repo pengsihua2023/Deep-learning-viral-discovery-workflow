@@ -448,7 +448,9 @@ If you use this workflow, please cite the following tools:
 
 ## License
 
-[Specify your license here]
+
+This project is licensed under the [MIT License](LICENSE).
+
 
 ## Contact
 
@@ -457,6 +459,7 @@ For questions or issues, please [open an issue](https://github.com/your-repo/iss
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
