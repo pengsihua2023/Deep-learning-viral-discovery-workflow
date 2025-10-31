@@ -441,10 +441,10 @@ If you use this workflow, please cite the following tools:
 - **DeepVirFinder**: Ren et al. (2020) Bioinformatics. [doi:10.1093/bioinformatics/btaa010](https://doi.org/10.1093/bioinformatics/btaa010)
 - **fastp**: Chen et al. (2018) Bioinformatics. [doi:10.1093/bioinformatics/bty560](https://doi.org/10.1093/bioinformatics/bty560)
 
-If you use this workflow in your research, please cite it as:
+This workflow should be cited as:
 
-[Sihua Peng et al.]. Deep learning viral discovery workflow. GitHub repository, 2025.
-Available at: https://github.com/your-username/viral-discovery-nextflow
+[Sihua Peng et al.]. **Deep learning viral discovery workflow**. GitHub repository, 2025.
+Available at: https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow
 
 ## Version
 
@@ -463,6 +463,7 @@ For questions or issues, please [open an issue](https://github.com/your-repo/iss
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
