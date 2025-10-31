@@ -447,7 +447,7 @@ If you use this workflow, please cite the following tools:
 
 This workflow should be cited as:
 
-[Sihua Peng et al.]. **Deep learning viral discovery workflow**. GitHub repository, 2025.  
+Sihua Peng et al. **Deep learning viral discovery workflow**. GitHub repository, 2025.  
 Available at: https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow  
 
 ## Version
@@ -469,6 +469,7 @@ For collaboration inquiries, please contact **Dr. Justin Bahl** (justin.bahl@uga
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
