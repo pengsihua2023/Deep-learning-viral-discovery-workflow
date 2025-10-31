@@ -3,7 +3,7 @@
 ---
 
 ## Slide 1: Title Slide
-**Title:** Metagenome Viral Classification Workflow  
+**Title:** AI-Powered Viral Discovery from Metagenomic Data  
 **Subtitle:** Machine Learning & Deep Learning Pipeline for Novel Virus Discovery  
 **Presenter:** Sihua Peng  
 **Date:** 10/31/2025  
@@ -449,6 +449,7 @@ nextflow run workflow.nf \
 **Impact:** Enables systematic viral discovery in metagenomic datasets
 
 ---
+
 
 
 
