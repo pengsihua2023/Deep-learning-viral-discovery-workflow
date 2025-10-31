@@ -450,54 +450,8 @@ nextflow run workflow.nf \
 
 ---
 
-## Slide 25: Acknowledgments & Resources
 
-**Tools Integrated:**
-- VirSorter2 (Guo et al., 2021)
-- DeepVirFinder (Ren et al., 2020)
-- MEGAHIT, metaSPAdes, metaFlye
 
-**Workflow:**
-- Nextflow-based pipeline
-- Open-source and available
 
-**Contact:**
-- GitHub: [Your repository URL]
-- Questions: [Your email]
 
-**Thank You!**
 
----
-
-## Slide 26: Q&A
-### Questions & Discussion
-
-**Ready for Questions**
-
----
-
-## Additional Notes for Presentation:
-
-### Tips for Delivery:
-
-1. **Slide 5-6**: Emphasize the difference between ML (VirSorter2) and DL (DeepVirFinder) - complementary approaches
-
-2. **Slide 7**: Use animation to show how results merge and form consensus
-
-3. **Slide 10**: Walk through the workflow step-by-step, highlighting each stage
-
-4. **Slide 12**: Provide specific examples from your field/application
-
-5. **Slide 14**: Show actual output examples if available (screenshots of reports)
-
-6. **Slide 21**: Use real data if possible - this is most impactful
-
-7. **Slide 22**: Be honest about limitations - shows scientific rigor
-
-### Visual Suggestions:
-
-- Add workflow diagrams with arrows showing data flow
-- Include bar charts showing detection sensitivity comparisons
-- Screenshots of actual output files
-- Venn diagrams showing consensus overlap
-- Flowcharts for decision trees
