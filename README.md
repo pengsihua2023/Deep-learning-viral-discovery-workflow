@@ -1,4 +1,4 @@
-# Metagenome Viral Classification Workflow
+# Deep learning viral discovery workflow
 
 A comprehensive Nextflow workflow for identifying viral sequences in metagenomic data using multiple assembly methods and viral identification tools.
 
@@ -453,4 +453,5 @@ For questions or issues, please [open an issue](https://github.com/your-repo/iss
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
