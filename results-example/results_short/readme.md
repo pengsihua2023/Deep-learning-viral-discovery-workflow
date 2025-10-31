@@ -1,5 +1,5 @@
 ## Selected result files
-The 3 files are the files in the directory "./results_long/merged_viral_reports_metaflye/".
+The 9 files are the files in the directory "./results_long/merged_viral_reports_metaflye/".
 
 
 ## a screenshot of the Illumina data analysis
