@@ -459,10 +459,11 @@ Documentation and figures are released under CC BY 4.0.
 ## Contact
 
 For questions or issues, please [open an issue](https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/issues) or contact the maintainers.  
-https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow  
+ 
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
