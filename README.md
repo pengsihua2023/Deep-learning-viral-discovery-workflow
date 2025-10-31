@@ -1,8 +1,8 @@
 # Deep learning viral discovery workflow
 
-We present a comprehensive and scalable Nextflow workflow for AI-driven viral discovery from metagenomic data. This workflow integrates multiple assembly strategies and advanced viral identification tools, including the machine learning–based VirSorter2 and the deep learning–based DeepVirFinder, to enable robust detection of viral sequences across diverse environments.
+We present a comprehensive and scalable Nextflow workflow for A**I-driven viral discovery** from **metagenomic data**. This workflow integrates multiple assembly strategies and advanced viral identification tools, including the machine learning–based **VirSorter2** and the deep learning–based **DeepVirFinder**, to enable robust detection of viral sequences across diverse environments.
 
-Designed for broad sequencing compatibility, the pipeline supports both short-read Illumina paired-end data and long-read PacBio and Oxford Nanopore datasets, allowing flexible analysis of heterogeneous metagenomic inputs. By leveraging the reproducibility and parallelization capabilities of Nextflow, the workflow ensures efficient, automated, and reproducible execution across different computational infrastructures.
+Designed for broad sequencing compatibility, the pipeline supports both short-read **Illumina** paired-end data and long-read **PacBio** and Oxford **Nanopore** datasets, allowing flexible analysis of heterogeneous metagenomic inputs. By leveraging the reproducibility and parallelization capabilities of Nextflow, the workflow ensures efficient, automated, and reproducible execution across different computational infrastructures.
 
 Overall, this workflow provides a unified AI-enhanced framework for comprehensive viral discovery, facilitating large-scale exploration of viral diversity from complex metagenomic samples.
 
@@ -464,6 +464,7 @@ or by Email: sihua.peng@uga.edu
 ## Acknowledgments
 
 This workflow integrates multiple open-source tools for metagenomic viral sequence identification. We thank all tool developers for their contributions to the community.
+
 
 
 
