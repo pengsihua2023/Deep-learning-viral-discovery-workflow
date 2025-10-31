@@ -1,5 +1,5 @@
 ## The 3 result files
-The 3 files are the files in the directory "./results_long/merged_viral_reports_metaflye/".
+The 3 files are the result files in the directory "./results_long/merged_viral_reports_metaflye/".
 
 
 ## A screenshot of the results derectory using Nanopore data
