@@ -1600,30 +1600,18 @@ Pfam contains protein families from **all life forms**, not a virus-specific dat
 
 ---
 
-## 👥 Contribution and Support
+### Container Configuration
 
-### Report Issues
-
-If you encounter problems:
-
-1. Check [FAQ](#-frequently-asked-questions)
-2. Run diagnostic script: `bash diagnose_viralflye.sh`
-3. Check `.nextflow.log`
-4. [Submit Issue](https://github.com/your-repo/issues)
-
-### Contribute Code
-
-Contributions welcome! Please:
-
-1. Fork this repository
-2. Create feature branch
-3. Submit Pull Request
+The workflow uses:
+- **Apptainer/Singularity** for MEGAHIT and SPAdes
+- **Conda** for fastp, VirSorter2, DeepVirFinder, Flye, minimap2, samtools, seqkit
 
 ---
 
 ## 📄 License
 
-[Please specify license, e.g., MIT License]
+This project is licensed under the MIT License.
+Documentation and figures are released under CC BY 4.0.
 
 ---
 
@@ -1643,9 +1631,8 @@ Thanks to the development teams of the following tools:
 
 ## 📞 Contact
 
-- **Maintainer**: [Your Name]
-- **Email**: [Your Email]
-- **Institution**: [Your Institution]
+For technical questions or issues, please open an issue or email Sihua Peng (sihua.peng@uga.edu).  
+For collaboration inquiries, please contact Dr. Justin Bahl (justin.bahl@uga.edu).  
 
 ---
 
@@ -1756,4 +1743,5 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 🎉
+
 
