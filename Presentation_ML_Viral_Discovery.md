@@ -459,33 +459,7 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ---
 
-## Slide 21: Future Directions
-
-### 🚀 Ongoing Development
-
-**1. Enhanced ML Models**
-- Integrate transformer-based models (BERT for sequences)
-- Meta-learning for transfer across environments
-- **Goal**: Even better novel virus discovery
-
-**2. Hybrid Sequencing**
-- Combine Illumina (accuracy) + Nanopore (length)
-- Polishing with short reads
-- **Goal**: Perfect viral genomes
-
-**3. Host Prediction**
-- Integrate CRISPR spacer analysis
-- Prophage detection
-- **Goal**: Understand virus-host interactions
-
-**4. Real-time Analysis**
-- Streaming analysis for Nanopore
-- Online learning
-- **Goal**: Minutes instead of hours
-
----
-
-## Slide 22: Conclusion
+## Slide 21: Conclusion
 
 ### 🎯 Key Takeaways
 
@@ -510,7 +484,7 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ---
 
-## Slide 23: Summary Table
+## Slide 22: Summary Table
 
 ### 📊 Workflow at a Glance
 
@@ -527,45 +501,6 @@ cat results/three_tools_comparison/*_comparison.txt
 | **Documentation** | Complete (English + Chinese) |
 | **Availability** | Open (GitHub) |
 
----
-
-## Slide 24: Acknowledgments & Contact
-
-### 🙏 Thank You
-
-**Acknowledgments**:
-- VirSorter2 Team (DOE Joint Genome Institute)
-- DeepVirFinder Team (Ren Lab, USC)
-- viralFlye/viralVerify Team (Antipov Lab, St. Petersburg University)
-- Flye Team (Kolmogorov Lab, NCI)
-- Nextflow Team (Seqera Labs)
-
-**Contact Information**:
-- GitHub: [Repository URL]
-- Email: [Your Email]
-- Documentation: README.md, README_EN.md
-
-**Questions?**
-
----
-
-## Slide 25: References
-
-### 📚 Key Publications
-
-**Viral Identification Tools**:
-1. **VirSorter2**: Guo et al. (2021) *Microbiome* 9:37
-2. **DeepVirFinder**: Ren et al. (2020) *Quantitative Biology* 8:64-70
-3. **viralFlye**: Antipov et al. (2020) *Bioinformatics* 36:4584-4586
-
-**Assembly Tools**:
-4. **Flye/metaFlye**: Kolmogorov et al. (2019) *Nat Biotechnol* 37:540-546
-
-**Databases**:
-5. **Pfam**: Mistry et al. (2021) *Nucleic Acids Res* 49:D412-D419
-
-**Workflow**:
-6. **Nextflow**: Di Tommaso et al. (2017) *Nat Biotechnol* 35:316-319
 
 ---
 
@@ -573,9 +508,6 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ## Questions & Discussion
 
-**Key Message**: Machine learning enables discovery of completely novel viruses through pattern recognition, validated by protein function analysis.
-
-**Workflow**: github.com/[your-repo]/ML-Viral-Discovery
-
 ---
+
 
