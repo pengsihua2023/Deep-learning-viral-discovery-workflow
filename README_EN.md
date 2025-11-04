@@ -1631,7 +1631,7 @@ Thanks to the development teams of the following tools:
 
 ## 📞 Contact
 
-For technical questions or issues, please open an issue or email Sihua Peng (sihua.peng@uga.edu).  
+For technical questions or issues, [open an issue](https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/issues) or email Sihua Peng (sihua.peng@uga.edu).  
 For collaboration inquiries, please contact Dr. Justin Bahl (justin.bahl@uga.edu).  
 
 ---
@@ -1743,5 +1743,6 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 🎉
+
 
 
