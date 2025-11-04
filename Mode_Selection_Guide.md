@@ -610,12 +610,6 @@ Default `completeness = 0.5` (requires 50% completeness) is too strict!
 | **0.3 (recommended)** | **10-20** | High ⭐⭐ | **Routine analysis** ⭐⭐⭐ |
 | 0.2 | 20-40 | Medium-High | Exploratory |
 
-### Detailed Guide
-
-See:
-- **`viralFlye参数优化指南.md`** - Complete optimization guide (Chinese)
-- **`viralFlye优化_快速参考.md`** - Quick reference card (Chinese)
-
 ---
 
 ## 🎉 Summary
@@ -649,10 +643,5 @@ See:
 **Choose the appropriate mode and start your viral metagenomic analysis!** 🚀
 
 **Related Documents**:
-- **`README.md`** - Complete user guide (Chinese)
-- **`README_EN.md`** - Complete user guide (English)
-- **`方案A_三工具并列分析说明.md`** - Long-read mode detailed design (Chinese)
-- **`提高病毒识别数量指南.md`** - Comprehensive parameter optimization guide (Chinese)
-- **`viralFlye参数优化指南.md`** ⭐⭐⭐ - viralFlye specialized optimization (Important! Chinese)
-- **`viralFlye优化_快速参考.md`** ⭐⭐ - viralFlye quick reference card (Chinese)
+- **`README_EN.md`** - Complete user guide
 
