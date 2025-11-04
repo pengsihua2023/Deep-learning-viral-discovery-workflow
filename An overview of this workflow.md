@@ -180,7 +180,7 @@ Contigs → Protein prediction → Pfam scan
 | Tool | Discovery Method | Strength | Virus Count |
 |------|-----------------|----------|-------------|
 | **VirSorter2** | Features + ML | Balanced | ~30-50 |
-| **DeepVirFinder** 🤖 | Deep Learning | **Novel Discovery** | ~200-500 |
+| **DeepVirFinder** | Deep Learning | **Novel Discovery** | ~200-500 |
 | **viralFlye** | Protein Function | High Specificity | ~28 |
 
 **The Power of Combination**:
@@ -264,7 +264,7 @@ Step 4: Validation
 | Tool | Viruses Identified | Novel Candidates |
 |------|-------------------|------------------|
 | VirSorter2 | 48 | ~20-30 |
-| DeepVirFinder | 187 (p<0.05) 🤖 | **~50-100** ⭐ |
+| DeepVirFinder | 187 (p<0.05) | **~50-100** ⭐ |
 | viralFlye | 28 (Pfam) | ~15-20 |
 | **3-tool consensus** | **10** | **~8-10** ⭐⭐⭐ |
 | **2-tool consensus** | **45** | **~30-35** ⭐⭐ |
@@ -306,7 +306,7 @@ Step 4: Validation
 **Critical Parameters**:
 
 ```groovy
-// DeepVirFinder - Maximize novel virus discovery 🤖
+// DeepVirFinder - Maximize novel virus discovery 
 deepvirfinder_pvalue = 0.05        // High sensitivity
 // Result: 200-500 candidates (casts wide net)
 
@@ -463,7 +463,7 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ### Key Takeaways
 
-**1. Machine Learning Revolution** 🤖
+**1. Machine Learning Revolution** 
 - Discovers viruses **without requiring similarity** to known sequences
 - Opens the door to viral "dark matter"
 
@@ -472,12 +472,12 @@ cat results/three_tools_comparison/*_comparison.txt
 - Clear confidence stratification
 - Minimizes false positives
 
-**3. Proven Performance** 📊
+**3. Proven Performance** 
 - **3-4x increase** in validated novel viruses
 - High specificity through cross-validation
 - Publication-ready results
 
-**4. Accessible Implementation** 💻
+**4. Accessible Implementation** 
 - Fully automated Nextflow pipeline
 - Comprehensive documentation
 - Open for community use
@@ -509,6 +509,7 @@ cat results/three_tools_comparison/*_comparison.txt
 ## Questions & Discussion
 
 ---
+
 
 
 
