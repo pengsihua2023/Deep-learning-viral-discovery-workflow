@@ -6,7 +6,7 @@
 
 ## Slide 1: Title
 
-# 🦠 Machine Learning-Enhanced Metagenomic Viral Discovery Workflow
+# Machine Learning-Enhanced Metagenomic Viral Discovery Workflow
 
 **Subtitle**: Multi-Tool Validation Framework for Novel Virus Identification
 
@@ -19,7 +19,7 @@
 
 ## Slide 2: Challenge - Traditional Limitations
 
-### 🚫 Traditional Methods Fall Short
+### Traditional Methods Fall Short
 
 **Problem**: How do we discover **completely novel viruses** in metagenomic data?
 
@@ -37,7 +37,7 @@
 
 ## Slide 3: Solution - Machine Learning Revolution
 
-### 🤖 Machine Learning Changes Everything
+### Machine Learning Changes Everything
 
 **Key Innovation**: Pattern Recognition, Not Similarity Search
 
@@ -59,7 +59,7 @@ Query sequence → Neural Network → Viral patterns learned
 
 ## Slide 4: Workflow Overview
 
-### 🔬 Three-Pronged ML Strategy
+### Three-Pronged ML Strategy
 
 ```
 Metagenomic Data
@@ -79,14 +79,14 @@ Metagenomic Data
 
 **Three Independent Lines of Evidence**:
 1. VirSorter2 (Hybrid ML)
-2. DeepVirFinder (Deep Learning) 🤖⭐
+2. DeepVirFinder (Deep Learning) ⭐
 3. viralFlye (Pfam Protein Validation)
 
 ---
 
 ## Slide 5: Dual-Mode Design
 
-### 📊 Flexible for Different Data Types
+### Flexible for Different Data Types
 
 | Mode | Data Type | Tools | Key Feature |
 |------|-----------|-------|-------------|
@@ -101,7 +101,7 @@ Metagenomic Data
 
 ## Slide 6: Tool #1 - VirSorter2 (Hybrid ML)
 
-### 🎯 VirSorter2: Combining Features with ML
+### VirSorter2: Combining Features with ML
 
 **Method**: Viral features + Machine Learning classifiers
 
@@ -120,7 +120,7 @@ Metagenomic Data
 
 ## Slide 7: Tool #2 - DeepVirFinder (Deep Neural Network)
 
-### 🤖 DeepVirFinder: The Novel Virus Hunter
+### DeepVirFinder: The Novel Virus Hunter
 
 **Method**: Deep Neural Network trained on viral vs non-viral sequences
 
@@ -146,7 +146,7 @@ Learns "What makes a sequence viral"
 
 ## Slide 8: Tool #3 - viralFlye (Pfam Validation)
 
-### 🔬 viralFlye: Function-Based Discovery
+### viralFlye: Function-Based Discovery
 
 **Method**: Pfam protein domain validation (20,000 protein families)
 
@@ -175,7 +175,7 @@ Contigs → Protein prediction → Pfam scan
 
 ## Slide 9: Why Three Tools?
 
-### 🎯 Complementary Strengths
+### Complementary Strengths
 
 | Tool | Discovery Method | Strength | Virus Count |
 |------|-----------------|----------|-------------|
@@ -198,7 +198,7 @@ Cross-validated novel viruses ⭐⭐⭐
 
 ## Slide 10: Multi-Tool Validation Strategy
 
-### 📊 Confidence Stratification
+### Confidence Stratification
 
 **Tiered Confidence System**:
 
@@ -225,7 +225,7 @@ Single-Tool Identification
 
 ## Slide 11: Novel Virus Discovery Workflow
 
-### 🔍 From Raw Data to Novel Viruses
+### From Raw Data to Novel Viruses
 
 ```
 Step 1: Assembly
@@ -233,7 +233,7 @@ Step 1: Assembly
 
 Step 2: Parallel ML Analysis
 ├─ VirSorter2 → 30-50 viruses
-├─ DeepVirFinder (ML) → 200-500 candidates 🤖
+├─ DeepVirFinder (ML) → 200-500 candidates 
 └─ viralFlye (Pfam) → 28 validated
 
 Step 3: Cross-Validation
@@ -254,7 +254,7 @@ Step 4: Validation
 
 ## Slide 12: Real Case Study
 
-### 📊 Sample: llnl_66d1047e (10 GB Nanopore)
+### Sample: llnl_66d1047e (10 GB Nanopore)
 
 **Input**: Environmental metagenome
 **Assembly**: 1,212 contigs from metaFlye
@@ -277,7 +277,7 @@ Step 4: Validation
 
 ## Slide 13: Spotlight on viralFlye
 
-### 🔬 Pfam-Validated High-Quality Viruses
+### Pfam-Validated High-Quality Viruses
 
 **Example: Complete Phage Genomes Discovered**
 
@@ -301,7 +301,7 @@ Step 4: Validation
 
 ## Slide 14: Parameter Optimization
 
-### ⚙️ Tuning for Novel Virus Discovery
+### Tuning for Novel Virus Discovery
 
 **Critical Parameters**:
 
@@ -326,7 +326,7 @@ virsorter2_min_score = 0.5
 
 ## Slide 15: Optimization Impact
 
-### 📈 Before vs After Optimization
+### Before vs After Optimization
 
 | Parameter Set | Total Candidates | High-Confidence | Novel Viruses |
 |---------------|-----------------|-----------------|---------------|
@@ -344,7 +344,7 @@ virsorter2_min_score = 0.5
 
 ## Slide 16: Computational Performance
 
-### ⚡ Scalable and Efficient
+### Scalable and Efficient
 
 **Resource Requirements**:
 
@@ -364,7 +364,7 @@ virsorter2_min_score = 0.5
 
 ## Slide 17: Output and Deliverables
 
-### 📁 Comprehensive Results Package
+### Comprehensive Results Package
 
 ```
 results_long/
@@ -390,7 +390,7 @@ results_long/
 
 ## Slide 18: Applications and Impact
 
-### 🌍 Real-World Applications
+### Real-World Applications
 
 **1. Environmental Virology**
 - Discover viruses in unexplored environments
@@ -416,7 +416,7 @@ results_long/
 
 ## Slide 19: Advantages Over Existing Methods
 
-### 🏆 Competitive Advantages
+### Competitive Advantages
 
 | Feature | Traditional | Our Workflow |
 |---------|-------------|--------------|
@@ -434,7 +434,7 @@ results_long/
 
 ## Slide 20: Implementation
 
-### 💻 Open and Accessible
+### Open and Accessible
 
 **Technology Stack**:
 - **Workflow**: Nextflow (portable, reproducible)
@@ -461,7 +461,7 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ## Slide 21: Conclusion
 
-### 🎯 Key Takeaways
+### Key Takeaways
 
 **1. Machine Learning Revolution** 🤖
 - Discovers viruses **without requiring similarity** to known sequences
@@ -486,7 +486,7 @@ cat results/three_tools_comparison/*_comparison.txt
 
 ## Slide 22: Summary Table
 
-### 📊 Workflow at a Glance
+### Workflow at a Glance
 
 | Aspect | Details |
 |--------|---------|
@@ -509,5 +509,6 @@ cat results/three_tools_comparison/*_comparison.txt
 ## Questions & Discussion
 
 ---
+
 
 
