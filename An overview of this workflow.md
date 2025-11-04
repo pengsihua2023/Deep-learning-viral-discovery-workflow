@@ -394,7 +394,7 @@ results_long/
 
 **1. Environmental Virology**
 - Discover viruses in unexplored environments
-- Ocean, soil, extreme environments
+- Water/Wastewater, soil, extreme environments
 - **Impact**: Expand viral diversity catalog
 
 **2. Clinical Applications**
@@ -504,6 +504,7 @@ cat results/three_tools_comparison/*_comparison.txt
 ## Questions & Discussion
 
 ---
+
 
 
 
