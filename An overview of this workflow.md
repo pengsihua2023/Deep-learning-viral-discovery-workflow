@@ -402,12 +402,7 @@ results_long/
 - Detect emerging infectious diseases
 - **Impact**: Early warning system
 
-**3. Biotechnology**
-- Mine novel viral proteins for applications
-- CRISPR-Cas systems, restriction enzymes
-- **Impact**: New molecular tools
-
-**4. Evolutionary Biology**
+**3. Evolutionary Biology**
 - Understand virus-host co-evolution
 - Trace viral origins and diversification
 - **Impact**: Fundamental insights
@@ -509,6 +504,7 @@ cat results/three_tools_comparison/*_comparison.txt
 ## Questions & Discussion
 
 ---
+
 
 
 
