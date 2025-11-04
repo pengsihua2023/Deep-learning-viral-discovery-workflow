@@ -187,7 +187,7 @@ echo "   4. DeepVirFinder viral prediction"
 echo "   5. Tool result merging (VirSorter2 + DeepVirFinder per assembler)"
 echo "   6. Assembler comparison (MEGAHIT vs SPAdes) → Final consensus viral list ⭐"
 echo ""
-echo "✅ Note: Using short-read mode (Illumina paired-end reads)"
+echo "✅ Note: Using short-read mode ( Illumina paired-end reads )"
 echo "✅ Note: Full run from scratch (no resume mode)"
 echo ""
 
