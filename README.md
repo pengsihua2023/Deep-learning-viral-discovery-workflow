@@ -11,7 +11,7 @@ A comprehensive Nextflow workflow for discovering and validating viral sequences
 
 **Supports two modes**:
 - **Short-read mode**: Dual assemblers (MEGAHIT + SPAdes) + ML tools (VirSorter2 + DeepVirFinder)
-- **Long-read mode**: Three-tool parallel analysis (VirSorter2 + DeepVirFinder + viralFlye) ⭐
+- **Long-read mode**: Three-tool parallel analysis (VirSorter2 + DeepVirFinder + viralFlye) 
 
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A522.10.0-brightgreen.svg)](https://www.nextflow.io/)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.7-blue.svg)](https://www.python.org/)
@@ -43,7 +43,7 @@ A comprehensive Nextflow workflow for discovering and validating viral sequences
 
 ### 🔬 Dual-Mode Viral Identification Design
 
-#### Long-read Mode: Three-Tool Parallel Analysis (Scheme A) ⭐⭐⭐
+#### Long-read Mode: Three-Tool Parallel Analysis 
 
 ```
 metaFlye assembly
@@ -93,11 +93,11 @@ Assembler comparison
 
 | Tool | Method | Characteristics | Mode Support | Novel Virus Discovery |
 |------|--------|----------------|-------------|----------------------|
-| **VirSorter2** | Viral DB + Machine Learning | Balanced | Short+Long | Known + Novel ⭐ |
-| **DeepVirFinder** | Deep Neural Network | High sensitivity | Short+Long | **Excellent for Novel** ⭐⭐⭐ |
-| **viralFlye** | Pfam protein validation | High specificity ⭐ | **Long-read only** | Function-based Novel Discovery ⭐⭐ |
+| **VirSorter2** | Viral DB + Machine Learning | Balanced | Short+Long | Known + Novel  |
+| **DeepVirFinder** | Deep Neural Network | High sensitivity | Short+Long | **Excellent for Novel** |
+| **viralFlye** | Pfam protein validation | High specificity | **Long-read only** | Function-based Novel Discovery |
 
-**Machine Learning Advantage** 🤖:
+**Machine Learning Advantage** :
 - **DeepVirFinder**: Learns sequence patterns, discovers viruses **without relying on sequence similarity**
 - **VirSorter2**: Combines ML with viral features, identifies novel variants
 - **viralFlye**: Function-based approach, discovers viruses **by protein domains** (not sequence)
@@ -135,7 +135,7 @@ sbatch run_metagenome_assembly_classification_longread_en.sh
 cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
-**That's it!** 🎉
+**That's it!** 
 
 ---
 
@@ -147,18 +147,18 @@ cat results_long/three_tools_comparison/*_comparison.txt
 |---------|----------------|----------------|
 | **Sequencing Platform** | Illumina | Nanopore / PacBio |
 | **Assemblers** | MEGAHIT + metaSPAdes (dual parallel) | metaFlye |
-| **Viral Identification** | VirSorter2 + DeepVirFinder (dual) | VirSorter2 + DeepVirFinder + viralFlye (three) ⭐ |
-| **Specialty** | Dual-assembler cross-validation | **Pfam protein validation** (viralFlye) ⭐⭐⭐ |
-| **Comparison** | Assembler comparison (MEGAHIT vs SPAdes) | **Three-tool comparison** (VS2 vs DVF vs viralFlye) ⭐ |
-| **Confidence Tiers** | Dual-tool consensus | **1-3 tool consensus** (more detailed) ⭐ |
+| **Viral Identification** | VirSorter2 + DeepVirFinder (dual) | VirSorter2 + DeepVirFinder + viralFlye (three)  |
+| **Specialty** | Dual-assembler cross-validation | **Pfam protein validation** (viralFlye)  |
+| **Comparison** | Assembler comparison (MEGAHIT vs SPAdes) | **Three-tool comparison** (VS2 vs DVF vs viralFlye)  |
+| **Confidence Tiers** | Dual-tool consensus | **1-3 tool consensus** (more detailed)  |
 | **Virus Count** | Medium | More (three tools cover wider range) |
 | **viralFlye Support** | ❌ Not supported | ✅ Supported ⭐ |
 
 **Summary**:
 - **Short-read mode**: Dual-assembler strategy, focus on assembler consistency
-- **Long-read mode**: Three-tool strategy, focus on multi-method validation + Pfam protein validation ⭐
+- **Long-read mode**: Three-tool strategy, focus on multi-method validation + Pfam protein validation 
 
-**Detailed comparison**: See [`Mode Selection Guide`](./模式选择指南.md) ⭐
+**Detailed comparison**: See [`Mode Selection Guide`](./Mode_Selection_Guide.md) ⭐
 
 ---
 
@@ -174,7 +174,7 @@ metaFlye → VS2+DVF → viralFlye → VS2+DVF validation again
                                 Redundant! Waste of resources
 ```
 
-#### ✅ New Design (Parallel Independent) ⭐
+#### ✅ New Design (Parallel Independent) 
 
 ```
 metaFlye → [VS2 ∥ DVF ∥ viralFlye] → Comprehensive comparison
@@ -186,38 +186,38 @@ metaFlye → [VS2 ∥ DVF ∥ viralFlye] → Comprehensive comparison
 - Avoid redundancy (save ~40 hours of computation)
 - Clear results (stratified by consensus level)
 
-### Three Tools' Positioning (ML-Enhanced Novel Virus Discovery) 🤖
+### Three Tools' Positioning (ML-Enhanced Novel Virus Discovery) 
 
 **VirSorter2** (Hybrid ML):
 - **Method**: Viral feature database + **Machine Learning classifiers**
-- **Novel Virus Discovery**: ⭐⭐ Can identify novel variants of known virus families
+- **Novel Virus Discovery**: Can identify novel variants of known virus families
 - **Characteristics**: Balance sensitivity and specificity
 - **Output**: Viral classification (dsDNA phage, ssDNA, RNA virus, etc.)
 
-**DeepVirFinder** (Deep Neural Network) 🤖⭐:
+**DeepVirFinder** (Deep Neural Network) :
 - **Method**: **Deep Learning** model trained on viral vs non-viral sequences
-- **Novel Virus Discovery**: ⭐⭐⭐ **Excellent** - learns sequence patterns, not similarity
+- **Novel Virus Discovery**: **Excellent** - learns sequence patterns, not similarity
 - **Key Advantage**: Discovers viruses **without requiring homology to known viruses**
 - **Characteristics**: High sensitivity, pattern-based identification
 - **Output**: Viral probability score and p-value
 
-**viralFlye** (Function-Based) ⭐:
+**viralFlye** (Function-Based) :
 - **Method**: **Pfam protein domain** validation (function-based)
-- **Novel Virus Discovery**: ⭐⭐ Discovers viruses **by protein function**, not sequence
+- **Novel Virus Discovery**: Discovers viruses **by protein function**, not sequence
 - **Key Advantage**: Can identify completely novel viruses if they have viral protein domains
 - **Characteristics**: Strict validation, high specificity, low false positives
 - **Output**: Pfam-validated viruses (Virus/Chromosome/Plasmid classification)
 
-**Why Three Tools for Novel Virus Discovery?** 🎯
+**Why Three Tools for Novel Virus Discovery?** 
 
 ```
-DeepVirFinder (ML) → Discovers by sequence patterns 🤖
+DeepVirFinder (ML) → Discovers by sequence patterns 
      +
-VirSorter2 (Hybrid) → Discovers by features + ML 🤖
+VirSorter2 (Hybrid) → Discovers by features + ML 
      +
-viralFlye (Function) → Validates by protein domains 🔬
+viralFlye (Function) → Validates by protein domains 
      ↓
-Comprehensive Novel Virus Discovery ⭐⭐⭐
+Comprehensive Novel Virus Discovery 
 ```
 
 **Important**: Pfam is NOT a virus-specific database, but a **universal protein family database** (contains proteins from all life forms). viralFlye distinguishes viruses by analyzing domain combination patterns, enabling **function-based novel virus discovery**.
@@ -233,9 +233,9 @@ Comprehensive Novel Virus Discovery ⭐⭐⭐
 - **Homology search**: Misses completely novel viruses
 - **Marker genes**: Limited to specific virus families
 
-**Machine Learning Approach (This Workflow)** ✅⭐⭐⭐:
+**Machine Learning Approach (This Workflow)** ✅:
 
-#### 1. DeepVirFinder - Deep Neural Network 🤖
+#### 1. DeepVirFinder - Deep Neural Network 
 
 ```
 Trained on thousands of viral and non-viral sequences
@@ -244,7 +244,7 @@ Learns "what makes a sequence viral"
     ↓
 Pattern recognition (NOT sequence similarity)
     ↓
-Discovers completely novel viruses ⭐⭐⭐
+Discovers completely novel viruses 
 ```
 
 **Key Advantages**:
@@ -255,14 +255,14 @@ Discovers completely novel viruses ⭐⭐⭐
 
 **Example**: Can discover a virus from a completely unexplored virus family!
 
-#### 2. VirSorter2 - Hybrid ML Approach 🤖
+#### 2. VirSorter2 - Hybrid ML Approach 
 
 ```
 Viral features (hallmark genes, genomic context)
     +
 Machine Learning classifiers
     ↓
-Identifies novel variants ⭐⭐
+Identifies novel variants 
 ```
 
 **Key Advantages**:
@@ -270,14 +270,14 @@ Identifies novel variants ⭐⭐
 - ✅ Identifies novel variants of known virus families
 - ✅ Classifies virus types
 
-#### 3. viralFlye - Function-Based Discovery 🔬
+#### 3. viralFlye - Function-Based Discovery 
 
 ```
 Pfam protein domain annotation
     ↓
 Analyzes domain combination patterns
     ↓
-Identifies viruses by FUNCTION (not sequence) ⭐⭐
+Identifies viruses by FUNCTION (not sequence) 
 ```
 
 **Key Advantages**:
@@ -285,25 +285,25 @@ Identifies viruses by FUNCTION (not sequence) ⭐⭐
 - ✅ **Distinguishes** viruses from bacteria/plasmids
 - ✅ **Validates** ML predictions with functional evidence
 
-### Three-Tool Synergy for Maximum Discovery Power 🎯
+### Three-Tool Synergy for Maximum Discovery Power 
 
 ```
-Step 1: DeepVirFinder (ML) 🤖
+Step 1: DeepVirFinder (ML) 
   → Casts wide net, discovers ~200-500 candidates
   → Includes many novel viruses
   
-Step 2: VirSorter2 (Hybrid ML) 🤖
+Step 2: VirSorter2 (Hybrid ML) 
   → Validates with features + ML
   → Adds ~30-50 viruses
   
-Step 3: viralFlye (Function) 🔬
+Step 3: viralFlye (Function) 
   → Validates with protein domains
   → Confirms ~28 viruses/candidates
   
 Result: Cross-Validation
-  → 3-tool consensus: Novel viruses with STRONGEST evidence ⭐⭐⭐⭐
-  → 2-tool consensus: Novel viruses with HIGH confidence ⭐⭐⭐
-  → ML finds → Function validates → Publication-ready! 🎉
+  → 3-tool consensus: Novel viruses with STRONGEST evidence 
+  → 2-tool consensus: Novel viruses with HIGH confidence 
+  → ML finds → Function validates → Publication-ready! 
 ```
 
 **Real-World Impact**:
@@ -460,7 +460,7 @@ sample2,/absolute/path/to/sample2_pacbio.fastq.gz
 
 ## 🎮 Usage
 
-### Method 1: Using SLURM Script (Recommended) ⭐
+### Method 1: Using SLURM Script (Recommended) 
 
 #### Short-read Data
 
@@ -500,7 +500,7 @@ nextflow run metagenome_assembly_classification_workflow_en.nf \
     --longread_platform nano
 ```
 
-#### Complete Three-Tool Analysis (Recommended) ⭐
+#### Complete Three-Tool Analysis (Recommended) 
 
 ```bash
 nextflow run metagenome_assembly_classification_workflow_en.nf \
@@ -556,30 +556,30 @@ rm -rf work/ .nextflow*
 | `--longread_platform` | Platform type | `nano` | `nano`/`pacbio` |
 | `--skip_longread_qc` | Skip long-read QC | `true` | `true` |
 
-### Three-Tool Analysis Parameters (Long-read Only) ⭐
+### Three-Tool Analysis Parameters (Long-read Only) 
 
 **Note**: viralFlye **only supports long-read mode**
 
-| Parameter | Description | Default | Optimized ⭐ |
+| Parameter | Description | Default | Optimized  |
 |-----------|-------------|---------|-------------|
 | `--enable_viralflye` | Enable viralFlye (long-read) | `false` | `true` |
-| `--viralflye_min_length` | Min viral length (bp) | `1000` | **`500`** ⭐ |
-| `--viralflye_completeness` | Completeness cutoff | `0.5` | **`0.3`** ⭐ |
+| `--viralflye_min_length` | Min viral length (bp) | `1000` | **`500`**  |
+| `--viralflye_completeness` | Completeness cutoff | `0.5` | **`0.3`**  |
 | `--pfam_db` | Pfam database path | - | Required |
 | `--viralflye_env` | viralFlye environment path | - | Required |
 
 ### Viral Identification Threshold Parameters (Short+Long)
 
-| Parameter | Description | Default | Optimized ⭐ | Mode Support |
+| Parameter | Description | Default | Optimized  | Mode Support |
 |-----------|-------------|---------|-------------|--------------|
 | `--virsorter2_min_score` | VirSorter2 min score | `0.5` | `0.5` | Short+Long |
 | `--virsorter2_min_length` | VirSorter2 min length | `1000` | `1000` | Short+Long |
-| `--deepvirfinder_pvalue` | DeepVirFinder p-value | `0.05` | **`0.05`** ⭐ | Short+Long |
+| `--deepvirfinder_pvalue` | DeepVirFinder p-value | `0.05` | **`0.05`**  | Short+Long |
 | `--deepvirfinder_min_length` | DVF min length | `1000` | `1000` | Short+Long |
 
-**Optimization Notes** (Long-read mode) ⭐⭐⭐:
+**Optimization Notes** (Long-read mode) :
 - `viralflye_min_length = 500`: Lower length threshold
-- **Automatically includes "Uncertain - viral or bacterial" sequences** ⭐⭐⭐
+- **Automatically includes "Uncertain - viral or bacterial" sequences** 
   - viralFlye reports: 2 → **~28** (2 confirmed + ~26 candidates)
   - High-confidence viruses selected through three-tool validation
 - `deepvirfinder_pvalue = 0.05`: Higher sensitivity (more viruses, 200-500)
@@ -597,7 +597,7 @@ rm -rf work/ .nextflow*
 
 ## 📁 Output Structure
 
-### Long-read Mode + Three-Tool Analysis (Complete Output) ⭐
+### Long-read Mode + Three-Tool Analysis (Complete Output) 
 
 ```
 results_long/
@@ -606,11 +606,11 @@ results_long/
 ├── assembly_metaflye/                    # metaFlye contigs (FASTA)
 │   └── sample_metaflye_contigs.fa
 │
-├── metaflye_full_output/                 # metaFlye complete output ⭐
+├── metaflye_full_output/                 # metaFlye complete output 
 │   └── sample_flye_output/
 │       ├── assembly.fasta                # Raw assembly
-│       ├── assembly_info.txt             # Assembly stats (depth, circular markers) ⭐
-│       ├── assembly_graph.gfa            # Assembly graph (Bandage visualization) ⭐
+│       ├── assembly_info.txt             # Assembly stats (depth, circular markers) 
+│       ├── assembly_graph.gfa            # Assembly graph (Bandage visualization) 
 │       ├── assembly_graph.gv
 │       ├── params.json                   # Run parameters
 │       ├── flye.log                      # Run log
@@ -624,7 +624,7 @@ results_long/
 ├── deepvirfinder_metaflye/               # DeepVirFinder identification
 │   └── sample_dvf_output.txt                 # Prediction results (score, p-value)
 │
-├── viralflye_results/                    # viralFlye identification (Pfam validated) ⭐
+├── viralflye_results/                    # viralFlye identification (Pfam validated) 
 │   ├── sample_viralflye_contigs.fa           # Viral sequences (~28)
 │   └── sample_viralflye_summary.csv          # Identification summary
 │
@@ -639,9 +639,9 @@ results_long/
 │       ├── vc_circulars/                     # viralComplete completeness assessment
 │       └── vc_linears/
 │
-└── 【Three-Tool Comprehensive Comparison】⭐⭐⭐
+└── 【Three-Tool Comprehensive Comparison】
     └── three_tools_comparison/           # Comprehensive analysis
-        ├── sample_three_tools_comparison.txt          # Text report ⭐
+        ├── sample_three_tools_comparison.txt          # Text report 
         ├── sample_three_tools_comparison.csv          # Detailed data (Excel-ready)
         └── sample_high_confidence_viruses.txt         # High-confidence virus list
 ```
@@ -667,7 +667,7 @@ results/
 
 ## 📈 Results Interpretation
 
-### Three-Tool Comprehensive Comparison Report (Most Important) ⭐⭐⭐
+### Three-Tool Comprehensive Comparison Report (Most Important) 
 
 **File**: `results_long/three_tools_comparison/sample_three_tools_comparison.txt`
 
@@ -694,7 +694,7 @@ Total viruses (deduplicated):  220
 VirSorter2 ∩ DeepVirFinder:     25
 VirSorter2 ∩ viralFlye:         12
 DeepVirFinder ∩ viralFlye:      15
-3-tool consensus ⭐⭐⭐:         10 (Highest confidence)
+3-tool consensus :         10 (Highest confidence)
 
 [Confidence Stratification]
 ------------------------------------------------------------------------------------
@@ -743,7 +743,7 @@ contig_890     2-tool-consensus    DeepVirFinder+viralFlye
 |--------|-------------|---------|
 | sequence_name | Contig name | contig_1085 |
 | identified_by | Tool combination | VirSorter2+DeepVirFinder+viralFlye |
-| consensus_count | Consensus level (1-3) ⭐ | 3 |
+| consensus_count | Consensus level (1-3) | 3 |
 | vs2_score | VirSorter2 score | 0.95 |
 | vs2_group | VirSorter2 virus type | dsDNAphage |
 | dvf_score | DeepVirFinder score | 0.87 |
@@ -766,7 +766,7 @@ contig_890     2-tool-consensus    DeepVirFinder+viralFlye
 cat results_long/three_tools_comparison/sample_three_tools_comparison.txt
 ```
 
-#### 2. Extract 3-Tool Consensus Viruses (Most Reliable) ⭐⭐⭐
+#### 2. Extract 3-Tool Consensus Viruses (Most Reliable) 
 
 ```bash
 # Extract contig IDs
@@ -786,7 +786,7 @@ seqkit grep -f consensus_3_ids.txt \
 # - Host prediction
 ```
 
-#### 3. Analyze viralFlye-Identified Viruses (Pfam Validated) ⭐⭐
+#### 3. Analyze viralFlye-Identified Viruses (Pfam Validated) 
 
 ```bash
 # Directly use viralFlye output (~28 sequences)
@@ -799,7 +799,7 @@ cp results_long/viralflye_results/sample_viralflye_contigs.fa \
 # - May be complete viral genomes
 ```
 
-#### 4. Analyze 2-Tool Consensus (Medium Confidence) ⭐⭐
+#### 4. Analyze 2-Tool Consensus (Medium Confidence) 
 
 ```bash
 # Extract 2-tool consensus
@@ -856,14 +856,14 @@ seqkit grep -f consensus_2_ids.txt \
 
 **Results**:
 - Small number identified
-- But extremely high quality ⭐
+- But extremely high quality 
 - Low false positive rate
 
 **Strategy for Novel Virus Discovery** 🤖:
-- **DeepVirFinder**: Many candidates (ML pattern recognition) - **Best for novel viruses** ⭐⭐⭐
-- **VirSorter2**: Balanced (ML + features) - Identifies novel variants ⭐⭐
-- **viralFlye**: Few but refined (function-based) - Validates by protein domains ⭐⭐
-- **Combined three**: **Comprehensive novel virus discovery** ⭐⭐⭐⭐
+- **DeepVirFinder**: Many candidates (ML pattern recognition) - **Best for novel viruses** 
+- **VirSorter2**: Balanced (ML + features) - Identifies novel variants 
+- **viralFlye**: Few but refined (function-based) - Validates by protein domains 
+- **Combined three**: **Comprehensive novel virus discovery** 
   - ML finds candidates → Pfam validates function → High confidence
 
 ---
@@ -915,7 +915,7 @@ seqkit grep -f consensus_2_ids.txt \
 - Specialty: Cross-validation through dual assemblers
 - viralFlye: ❌ **Not supported**
 
-**Long-read mode** ⭐:
+**Long-read mode** :
 - Assembler: metaFlye
 - Viral identification: VirSorter2 + DeepVirFinder + **viralFlye** (three tools)
 - Comparison: **Three-tool comparison** (VS2 vs DVF vs viralFlye)
@@ -926,7 +926,7 @@ seqkit grep -f consensus_2_ids.txt \
 - Have Illumina data → Use short-read mode
 - Have Nanopore/PacBio data → Use long-read mode (recommend enabling viralFlye)
 
-### Q2: viralFlye Only Identifies 2 Viruses? ⭐⭐⭐
+### Q2: viralFlye Only Identifies 2 Viruses? 
 
 **A**: Optimized! Now reports **~28 viral candidates** (includes Uncertain sequences)
 
@@ -936,25 +936,25 @@ metaFlye assembly (1212 contigs)
     ↓
 Identify circular/linear sequences: 218
     ↓
-Pfam classification (viralVerify) ⭐ Key step!
+Pfam classification (viralVerify)  Key step!
     ↓
-├─ Virus (confirmed): 2 ⭐⭐⭐
-├─ Uncertain - viral or bacterial: ~26 ⭐⭐ Viral candidates!
+├─ Virus (confirmed): 2 
+├─ Uncertain - viral or bacterial: ~26 Viral candidates!
 ├─ Chromosome (bacterial): ~150 (excluded)
 └─ Plasmid: ~40 (excluded)
     ↓
 viralFlye reports: 2 + 26 = ~28
 ```
 
-**Key Understanding** ⭐⭐⭐:
+**Key Understanding** :
 - **Confirmed viruses** (2): Pfam has clear viral feature domain combinations
 - **Viral candidates** (~26): Pfam uncertain, need VS2/DVF validation
 - **Three-tool cross-validation** filters high-confidence viruses
 
 **Optimized Results**:
-- viralFlye reports: **~28** (2 confirmed + ~26 candidates) ⭐
-- 3-tool consensus: **5-15 high-confidence viruses** ⭐⭐⭐
-- 2-tool consensus: **15-25** ⭐⭐
+- viralFlye reports: **~28** (2 confirmed + ~26 candidates) 
+- 3-tool consensus: **5-15 high-confidence viruses** 
+- 2-tool consensus: **15-25** 
 
 **Detailed Documentation**:
 - `viralFlye病毒数量优化_最终方案.md` - Complete technical explanation
@@ -1005,16 +1005,16 @@ flye --meta ...  # Use metaFlye mode
 3. **Visualization**: assembly_graph.gfa can be viewed with Bandage
 4. **Further analysis**: Can re-run viralFlye or other tools
 
-### Q7: Why Only 2 "Virus" but Report ~28? ⭐⭐⭐
+### Q7: Why Only 2 "Virus" but Report ~28? 
 
 **A**: Includes Pfam-uncertain viral candidate sequences
 
 **Pfam Classification Results**:
-- **Virus** (2): Clear viral feature domain combinations ⭐⭐⭐
+- **Virus** (2): Clear viral feature domain combinations 
   - Examples: Phage_portal, TerL_ATPase, Phage_capsid
   - Extremely high confidence, no additional validation needed
   
-- **Uncertain - viral or bacterial** (~26): ⭐⭐
+- **Uncertain - viral or bacterial** (~26): 
   - Pfam cannot determine (too few domains or mixed features)
   - Could be novel viruses, viral fragments, or non-viruses
   - **Require VS2/DVF cross-validation**
@@ -1023,15 +1023,15 @@ flye --meta ...  # Use metaFlye mode
 ```
 Uncertain sequences + VirSorter2 + DeepVirFinder
   ↓
-Identified by 2 or 3 tools → High-confidence virus ⭐⭐
-Only viralFlye identifies → Need further validation ⭐
+Identified by 2 or 3 tools → High-confidence virus 
+Only viralFlye identifies → Need further validation 
 ```
 
 **Effect**:
 - viralFlye total reports: **~28** (2 confirmed + 26 candidates)
-- High-confidence viruses after 3-tool validation: **15-25** ⭐⭐⭐
+- High-confidence viruses after 3-tool validation: **15-25** 
 
-### Q8: How to Increase Virus Count? (Already Optimized) ⭐
+### Q8: How to Increase Virus Count? (Already Optimized) 
 
 **A**: Workflow automatically optimized
 
@@ -1049,13 +1049,9 @@ virsorter2_min_score = 0.5
 ```
 
 **Actual Effects**:
-- viralFlye: 2 → **~28** ⭐⭐⭐ (includes Uncertain)
+- viralFlye: 2 → **~28**  (includes Uncertain)
 - DeepVirFinder: 100 → 200-500 (p=0.05, higher sensitivity)
-- **3-tool consensus**: 10-20 high-confidence viruses ⭐⭐⭐
-
-See:
-- `viralFlye病毒数量优化_最终方案.md`
-- `提高病毒识别数量指南.md`
+- **3-tool consensus**: 10-20 high-confidence viruses 
 
 ### Q9: What Does Pfam Database Contain?
 
@@ -1205,13 +1201,13 @@ virsorter2_min_score = 0.7        // High score
 // Expected: 5-15 extremely reliable viruses
 ```
 
-#### Balanced Research (Recommended) ⭐
+#### Balanced Research (Recommended) 
 
 ```groovy
 // Goal: Balance quantity and quality
-viralflye_min_length = 500        // ⭐ Current config
-viralflye_completeness = 0.3      // ⭐ Current config
-deepvirfinder_pvalue = 0.05       // ⭐ Current config
+viralflye_min_length = 500        //  Current config
+viralflye_completeness = 0.3      //  Current config
+deepvirfinder_pvalue = 0.05       //  Current config
 virsorter2_min_score = 0.5
 
 // Expected: 50-100 reliable viruses
@@ -1239,7 +1235,7 @@ virsorter2_min_score = 0.3
 
 ---
 
-## 🌟 Expected Results (ML-Enhanced Novel Virus Discovery) ⭐⭐⭐
+## 🌟 Expected Results (ML-Enhanced Novel Virus Discovery) 
 
 ### Typical Sample (Long-read Mode + Three Tools)
 
@@ -1249,68 +1245,35 @@ Input: 10 GB Nanopore metagenomic data
 Output:
 - metaFlye contigs: ~1000
 - VirSorter2 identified: ~30-50 viruses (ML + features)
-- DeepVirFinder identified: ~200-500 viruses (Deep Learning, p<0.05) 🤖
-- viralFlye identified: ~28 viruses/candidates (Pfam function validation) ⭐⭐⭐
-  - Virus (Pfam-confirmed): 2 ⭐⭐⭐⭐
-  - Uncertain (candidates): ~26 ⭐⭐
+- DeepVirFinder identified: ~200-500 viruses (Deep Learning, p<0.05) 
+- viralFlye identified: ~28 viruses/candidates (Pfam function validation) 
+  - Virus (Pfam-confirmed): 2 
+  - Uncertain (candidates): ~26 
 
-Three-Tool Comprehensive Validation ⭐⭐⭐:
-- 3-tool consensus: ~10-20 ⭐⭐⭐⭐ (ML + Function validated)
-- 2-tool consensus: ~30-60 ⭐⭐⭐
+Three-Tool Comprehensive Validation :
+- 3-tool consensus: ~10-20  (ML + Function validated)
+- 2-tool consensus: ~30-60 
   - ML-discovered + Function-validated candidates
   - Includes novel viruses with high confidence
 - Total usable viruses: ~50-100 (stratified by confidence)
 
-Novel Virus Discovery Potential 🤖:
+Novel Virus Discovery Potential :
 - DeepVirFinder ML: Identifies ~50-100 potential novel viruses
-- Cross-validated by other tools: ~20-40 high-confidence novel viruses ⭐⭐⭐
-- Pfam-validated novel viruses: ~5-15 (function confirmed) ⭐⭐⭐⭐
+- Cross-validated by other tools: ~20-40 high-confidence novel viruses 
+- Pfam-validated novel viruses: ~5-15 (function confirmed) 
 
 Runtime: 48-72 hours
 ```
 
-**Key Improvements** 🚀:
-- **ML-powered discovery**: DeepVirFinder finds novel viruses without homology requirement 🤖
-- **Multi-tool validation**: ML finds → Function validates → High confidence ⭐⭐⭐
-- **viralFlye optimization**: Now reports **~28** (includes Uncertain sequences) ⭐⭐⭐
-- **Novel virus focus**: ~20-40 high-confidence novel viruses through cross-validation ⭐⭐⭐⭐
+**Key Improvements** :
+- **ML-powered discovery**: DeepVirFinder finds novel viruses without homology requirement 
+- **Multi-tool validation**: ML finds → Function validates → High confidence 
+- **viralFlye optimization**: Now reports **~28** (includes Uncertain sequences) 
+- **Novel virus focus**: ~20-40 high-confidence novel viruses through cross-validation 
 - **Confidence stratification**: Clear tiers (Virus vs Uncertain, 1-3 tool consensus)
 
 ---
 
-## 📚 Detailed Documentation
-
-### Core Documents
-
-- **`README_EN.md`** (this file) - Complete English user guide
-- **`README.md`** - Complete Chinese user guide
-- **`README_CN.md`** - Concise Chinese guide
-- **`快速参考_方案A.md`** - One-page reference card
-
-### Design Documents
-
-- **`方案A_快速开始指南.md`** - Detailed usage guide
-- **`方案A_三工具并列分析说明.md`** - Design philosophy
-- **`修改总结_方案A.md`** - Complete modification log
-
-### Technical Documents
-
-- **`VIRALFLYE_问题解决总结.md`** - viralFlye diagnostics
-- **`VIRALFLYE_最终说明.md`** - viralFlye detailed explanation
-- **`metaFlye完整输出说明.md`** - metaFlye output explanation
-- **`提高病毒识别数量指南.md`** - Parameter optimization guide
-
-### viralFlye Specialized Optimization (New) ⭐⭐⭐
-
-- **`viralFlye病毒数量优化_最终方案.md`** - viralFlye from 2 to 28 technical explanation
-- **`viralFlye增加病毒数量_快速指南.md`** - Quick operation guide
-- **`viralFlye参数优化指南.md`** - Complete parameter explanation
-- **`viralFlye优化_快速参考.md`** - Quick reference card
-
-### Troubleshooting
-
-- **`紧急修复_缓存问题.md`** - Nextflow cache cleanup
-- **`VIRALFLYE_故障排除.md`** - viralFlye problem diagnosis
 
 ### Utility Scripts
 
@@ -1508,7 +1471,7 @@ If using this workflow for publication, please cite the following tools:
 - ✅ Three-tool parallel independent analysis architecture (Scheme A)
 - ✅ Remove redundant validation of viralFlye results
 - ✅ Add COMPARE_THREE_VIRAL_TOOLS comprehensive comparison
-- ✅ **viralFlye viral identification optimization** ⭐⭐⭐
+- ✅ **viralFlye viral identification optimization** 
   - Include "Uncertain - viral or bacterial" sequences (~26)
   - viralFlye reports increased from 2 to **~28**
   - High-confidence viruses screened through three-tool cross-validation
@@ -1540,7 +1503,7 @@ If using this workflow for publication, please cite the following tools:
 VS2 → DVF → viralFlye → VS2 → DVF (redundant)
 ```
 
-**Now** ⭐: Parallel independent, no redundancy
+**Now** : Parallel independent, no redundancy
 ```
 VS2 ∥ DVF ∥ viralFlye → Comprehensive comparison
 ```
@@ -1548,11 +1511,11 @@ VS2 ∥ DVF ∥ viralFlye → Comprehensive comparison
 ### 2. Confidence Stratification
 
 Automatically generate high-confidence virus list:
-- 3-tool consensus ⭐⭐⭐
-- 2-tool consensus ⭐⭐
-- Single-tool identification ⭐
+- 3-tool consensus 
+- 2-tool consensus 
+- Single-tool identification 
 
-### 3. viralFlye Optimization ⭐⭐⭐
+### 3. viralFlye Optimization 
 
 Significantly increase viral identification:
 - **Include "Uncertain - viral or bacterial" sequences**
@@ -1562,7 +1525,7 @@ Significantly increase viral identification:
 ### 4. Optimized Parameters
 
 Improve virus identification count:
-- viralFlye: ~28 (includes Uncertain) ⭐⭐⭐
+- viralFlye: ~28 (includes Uncertain) 
 - DeepVirFinder: 200-500 (p=0.05, higher sensitivity)
 
 ### 5. Complete Assembly Information
@@ -1616,7 +1579,7 @@ Documentation and figures are released under CC BY 4.0.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Thanks to the development teams of the following tools:
 
@@ -1726,7 +1689,7 @@ For collaboration inquiries, please contact Dr. Justin Bahl (justin.bahl@uga.edu
 **Workflow Version**: 5.2.1  
 **Design Philosophy**: Three-tool parallel independent analysis, comprehensive comparison, confidence stratification
 
-**Happy viral hunting!** 🦠✨
+**Happy viral hunting!** 
 
 ---
 
@@ -1743,7 +1706,8 @@ sbatch run_metagenome_assembly_classification_longread_en.sh
 cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
-**That's it! Start your viral metagenomic analysis journey now!** 🎉
+**That's it! Start your viral metagenomic analysis journey now!** 
+
 
 
 
