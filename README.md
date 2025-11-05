@@ -5,13 +5,13 @@
 A comprehensive Nextflow workflow for discovering and validating viral sequences from metagenomic data using machine learning and Pfam protein validation.
 
 **Key Features**:
-- 🤖 **Machine Learning**: DeepVirFinder for novel virus discovery
-- 🔬 **Pfam Validation**: viralFlye for protein domain verification
-- 🎯 **Multi-Tool Consensus**: Cross-validation for high-confidence identification
+- **Machine Learning**: DeepVirFinder for novel virus discovery
+- **Pfam Validation**: viralFlye for protein domain verification
+- **Multi-Tool Consensus**: Cross-validation for high-confidence identification
 
 **Supports two modes**:
-- 🧬 **Short-read mode**: Dual assemblers (MEGAHIT + SPAdes) + ML tools (VirSorter2 + DeepVirFinder)
-- 🦠 **Long-read mode**: Three-tool parallel analysis (VirSorter2 + DeepVirFinder + viralFlye) ⭐
+- **Short-read mode**: Dual assemblers (MEGAHIT + SPAdes) + ML tools (VirSorter2 + DeepVirFinder)
+- **Long-read mode**: Three-tool parallel analysis (VirSorter2 + DeepVirFinder + viralFlye) ⭐
 
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A522.10.0-brightgreen.svg)](https://www.nextflow.io/)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.7-blue.svg)](https://www.python.org/)
@@ -1744,6 +1744,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 🎉
+
 
 
 
