@@ -859,7 +859,7 @@ seqkit grep -f consensus_2_ids.txt \
 - But extremely high quality 
 - Low false positive rate
 
-**Strategy for Novel Virus Discovery** 🤖:
+**Strategy for Novel Virus Discovery** :
 - **DeepVirFinder**: Many candidates (ML pattern recognition) - **Best for novel viruses** 
 - **VirSorter2**: Balanced (ML + features) - Identifies novel variants 
 - **viralFlye**: Few but refined (function-based) - Validates by protein domains 
@@ -955,10 +955,6 @@ viralFlye reports: 2 + 26 = ~28
 - viralFlye reports: **~28** (2 confirmed + ~26 candidates) 
 - 3-tool consensus: **5-15 high-confidence viruses** 
 - 2-tool consensus: **15-25** 
-
-**Detailed Documentation**:
-- `viralFlye病毒数量优化_最终方案.md` - Complete technical explanation
-- `viralFlye增加病毒数量_快速指南.md` - Quick operation guide
 
 ### Q3: Error "VIRSORTER2_VIRALFLYE terminated with error"
 
@@ -1707,6 +1703,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 
+
 
 
 
