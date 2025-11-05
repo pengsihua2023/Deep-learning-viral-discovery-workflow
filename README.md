@@ -34,8 +34,9 @@ A comprehensive Nextflow workflow for discovering and validating viral sequences
 - [Performance Optimization](#-performance-and-resources)
 - [FAQ](#-frequently-asked-questions)
 - [Citation](#-citation)
-- **[📘 Mode Selection Guide](./模式选择指南.md)** ⭐⭐⭐
+- **[📘 Mode Selection Guide](./Mode_Selection_Guide.md)** ⭐⭐⭐
 
+https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/blob/main/Mode_Selection_Guide.md
 ---
 
 ## ✨ Core Features
@@ -1743,6 +1744,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 🎉
+
 
 
 
