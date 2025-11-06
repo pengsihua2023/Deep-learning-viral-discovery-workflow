@@ -1,4 +1,4 @@
-# 🦠 Machine Learning-Enhanced Metagenomic Viral Discovery Workflow
+# Machine Learning-Enhanced Metagenomic Viral Discovery Workflow
 
 **Version 5.2.1** | ML-Powered Novel Virus Discovery | Multi-Tool Validation
 
@@ -1703,6 +1703,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 
+
 
 
 
