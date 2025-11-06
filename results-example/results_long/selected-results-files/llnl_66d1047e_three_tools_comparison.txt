@@ -1,0 +1,42 @@
+====================================================================================================
+Three-Tool Viral Identification Comprehensive Comparison Report
+VirSorter2 + DeepVirFinder + viralFlye (Plan A: Parallel Independent Analysis)
+Sample: llnl_66d1047e
+====================================================================================================
+
+[Overall Statistics]
+----------------------------------------------------------------------------------------------------
+VirSorter2 identified viruses:            29 sequences
+DeepVirFinder identified viruses:         86 sequences (p<0.05)
+viralFlye identified viruses:             17 sequences (Pfam validated)
+Total viruses (deduplicated):            115 sequences
+
+[Tool Intersection Analysis]
+----------------------------------------------------------------------------------------------------
+VirSorter2 ∩ DeepVirFinder:     11 sequences
+VirSorter2 ∩ viralFlye:          6 sequences
+DeepVirFinder ∩ viralFlye:       3 sequences
+Three-tool consensus ⭐⭐⭐:                 3 sequences (highest confidence)
+
+[Confidence Stratification]
+----------------------------------------------------------------------------------------------------
+Highest confidence (3-tool consensus):         3 sequences ⭐⭐⭐
+Medium confidence (2-tool consensus):         11 sequences ⭐⭐
+Low confidence (1-tool identification):      101 sequences ⭐
+
+[Recommended Analysis Strategy]
+----------------------------------------------------------------------------------------------------
+1. Prioritize three-tool consensus viruses (most reliable)
+2. Two-tool consensus viruses as second priority
+3. viralFlye unique identifications (Pfam validated, high specificity)
+4. Single-tool identifications for exploratory analysis
+
+[Three-Tool Consensus Virus List ⭐⭐⭐]
+----------------------------------------------------------------------------------------------------
+Sequence Name                            VS2 Score  DVF Score  viralFlye      
+----------------------------------------------------------------------------------------------------
+contig_1192                              1.00       0.81       Circular       
+contig_1087                              1.00       0.70       Circular       
+contig_840                               0.97       0.99       Linear         
+
+====================================================================================================
