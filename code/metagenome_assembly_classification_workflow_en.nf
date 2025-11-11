@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 /*
- * Metagenome Viral Classification Workflow (English Version)
+ * Metagenome Viral Classification Workflow
  * 
  * This workflow integrates:
  * 1. Quality control using fastp (optional)
