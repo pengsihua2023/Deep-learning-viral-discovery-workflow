@@ -12,8 +12,8 @@
 
 **Version 5.2.1**
 
-**Presenter**: [Your Name]  
-**Date**: November 2025
+**Presenter**: Sihua Peng  
+**Date**: November 14, 2025
 
 ---
 
@@ -512,6 +512,7 @@ cat results/three_tools_comparison/*_comparison.txt
 ## Questions & Discussion
 
 ---
+
 
 
 
