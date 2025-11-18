@@ -1803,7 +1803,7 @@ sbatch run_metagenome_assembly_classification_longread.sh
 cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
-**That's it! Start your viral metagenomic analysis journey now!** 
+
 
 
 
