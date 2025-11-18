@@ -1,6 +1,6 @@
 # Workflow Mode Selection Guide
 
-> ** Important Update (2025-11-04)**:  
+> **Important Update (2025-11-04)**:  
 > If your **viralFlye only identifies 2 viruses**, lower the `viralflye_completeness` parameter!  
 > See: [viralFlye Parameter Optimization Important Tips](#-viralflye-parameter-optimization-important-tips-)
 
@@ -675,5 +675,6 @@ See:
 - **`parameter_optimization_guide.md`** - Comprehensive parameter optimization guide (English)
 - **`viralFlye_parameter_optimization_guide.md`** ⭐⭐⭐ - viralFlye specialized optimization (Important! English)
 - **`viralFlye_quick_reference.md`** ⭐⭐ - viralFlye quick reference card (English)
+
 
 
