@@ -11,7 +11,7 @@
  * 5. Assembler comparison to identify high-confidence consensus viral sequences
  * 
  * Author: Assistant
- * Version: 5.1.0
+ * Version: 5.2.1
  */
 
 nextflow.enable.dsl = 2
@@ -165,7 +165,7 @@ if (!params.longread) {
 ==========================================
 🦠 Metagenome Viral Classification Workflow (Short-Read Mode)
 ==========================================
-Workflow version: 5.1.0
+Workflow version: 5.2.1
 Input samplesheet: ${params.input}
 Output directory: ${params.outdir}
 
@@ -196,7 +196,7 @@ Abundance Calculation:
 ==========================================
 🦠 Metagenome Viral Classification Workflow (Long-Read Mode)
 ==========================================
-Workflow version: 5.1.0
+Workflow version: 5.2.1
 Input samplesheet: ${params.input}
 Output directory: ${params.outdir}
 
