@@ -1,12 +1,12 @@
 # Workflow Mode Selection Guide
 
-> **🚨 Important Update (2025-11-04)**:  
+> ** Important Update (2025-11-04)**:  
 > If your **viralFlye only identifies 2 viruses**, lower the `viralflye_completeness` parameter!  
 > See: [viralFlye Parameter Optimization Important Tips](#-viralflye-parameter-optimization-important-tips-)
 
 ---
 
-## 🎯 Quick Selection
+## Quick Selection
 
 **What data do you have?**
 
@@ -22,7 +22,7 @@ Use【Long-read Mode】+ Enable viralFlye ⭐
 
 ---
 
-## 📊 Detailed Comparison of Two Modes
+## Detailed Comparison of Two Modes
 
 ### Short-read Mode (Illumina)
 
@@ -160,7 +160,7 @@ results_long/
 
 ---
 
-## 🎯 Detailed Comparison Table
+## Detailed Comparison Table
 
 | Comparison Item | Short-read Mode | Long-read Mode |
 |----------------|----------------|----------------|
@@ -180,7 +180,7 @@ results_long/
 
 ---
 
-## 🔍 How to Choose a Mode?
+## How to Choose a Mode?
 
 ### Scenario 1: Only Illumina Data
 
@@ -228,7 +228,7 @@ Then manually compare results from both modes
 
 ---
 
-## 💡 Why Does viralFlye Only Support Long-read?
+## Why Does viralFlye Only Support Long-read?
 
 ### Technical Reasons
 
@@ -267,7 +267,7 @@ Then manually compare results from both modes
 
 ---
 
-## 🎯 Recommended Configurations
+## Recommended Configurations
 
 ### Best Configuration for Short-read Mode
 
@@ -325,7 +325,7 @@ Focus on:
 
 ---
 
-## 📋 Feature Comparison
+## Feature Comparison
 
 ### Short-read Mode Features
 
@@ -364,7 +364,7 @@ Focus on:
 
 ---
 
-## 🎯 Result Quality Comparison
+## Result Quality Comparison
 
 ### Short-read Mode
 
@@ -414,7 +414,7 @@ Single-tool Identification:
 
 ---
 
-## 🔬 Unique Value of viralFlye (Long-read Exclusive)
+## Unique Value of viralFlye (Long-read Exclusive)
 
 ### Why is Long-read Mode More Powerful?
 
@@ -496,7 +496,7 @@ viralflye_completeness = 0.3        // ⭐⭐⭐ Lower completeness threshold (K
 
 ---
 
-## ⚙️ Mode Configuration
+## Mode Configuration
 
 ### Short-read Mode Configuration
 
@@ -561,7 +561,7 @@ nextflow run metagenome_assembly_classification_workflow.nf \
 
 ---
 
-## ✅ Recommended Choice
+## Recommended Choice
 
 ### If You Have Illumina Data
 
@@ -588,7 +588,7 @@ Run: sbatch run_metagenome_assembly_classification_longread.sh
 
 ---
 
-## 🚨 viralFlye Parameter Optimization Important Tips ⭐⭐⭐
+## viralFlye Parameter Optimization Important Tips ⭐⭐⭐
 
 ### Problem: viralFlye Only Identifies 2 Viruses?
 
@@ -633,7 +633,7 @@ See:
 
 ---
 
-## 🎉 Summary
+## Summary
 
 ### Core Differences
 
@@ -675,4 +675,5 @@ See:
 - **`parameter_optimization_guide.md`** - Comprehensive parameter optimization guide (English)
 - **`viralFlye_parameter_optimization_guide.md`** ⭐⭐⭐ - viralFlye specialized optimization (Important! English)
 - **`viralFlye_quick_reference.md`** ⭐⭐ - viralFlye quick reference card (English)
+
 
