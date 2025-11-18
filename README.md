@@ -1692,8 +1692,9 @@ Thanks to the development teams of the following tools:
 
 ## 📞 Contact
 
-For technical questions or issues, [open an issue](https://github.com/pengsihua2023/Deep-learning-viral-discovery-workflow/issues) or email Sihua Peng (sihua.peng@uga.edu).  
-For collaboration inquiries, please contact Dr. Justin Bahl (justin.bahl@uga.edu).  
+- 📧 Email: sihua.peng@uga.edu, Workflow code programmer  
+- 📧 Email: justin.bahl@uga.edu, Project supervisor  
+- 💻 Suggestion: [Click here!](https://github.com/pengsihua2023/rvdb-viral-metagenome-nf/issues/new)
 
 ---
 
@@ -1804,6 +1805,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
 **That's it! Start your viral metagenomic analysis journey now!** 
+
 
 
 
