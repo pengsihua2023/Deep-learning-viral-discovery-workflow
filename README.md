@@ -1582,7 +1582,7 @@ If using this workflow for publication, please cite the following tools:
 
 ### Version History
 
-- **5.2.1** (2025-11-04): viralFlye optimization (Uncertain sequences) + p-value adjustment
+- **5.2.1** (2025-11-14): Viral abundance calculation (RPM & RPKM) + viralFlye optimization (Uncertain sequences) + p-value adjustment
 - **5.2.0** (2025-11-03): Three-tool parallel analysis + parameter optimization
 - **5.1.0** (2025-11-02): Add viralFlye support
 - **5.0.0** (2025-11-01): Long-read mode support
@@ -1803,7 +1803,7 @@ sbatch run_metagenome_assembly_classification_longread.sh
 cat results_long/three_tools_comparison/*_comparison.txt
 ```
 
-
+**That's it! Start your viral metagenomic analysis journey now!** 
 
 
 
