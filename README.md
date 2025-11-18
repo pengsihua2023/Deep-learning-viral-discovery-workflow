@@ -19,7 +19,7 @@ A comprehensive Nextflow workflow for discovering and validating viral sequences
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Core Features](#-core-features)
 - [Mode Comparison](#-mode-comparison-summary) 
@@ -40,7 +40,7 @@ A comprehensive Nextflow workflow for discovering and validating viral sequences
                      
 ---
 
-## ✨ Core Features
+## Core Features
 
 ### 🔬 Dual-Mode Viral Identification Design
 
@@ -105,12 +105,12 @@ Assembler comparison
 
 **Note**: viralFlye **only supports long-read mode** (requires complete metaFlye output)
 
-### 📊 Multi-Assembler Support
+### Multi-Assembler Support
 
 - **Short-read**: MEGAHIT + metaSPAdes dual assemblers in parallel
 - **Long-read**: metaFlye (Nanopore/PacBio)
 
-### 🎯 Other Features
+### Other Features
 
 - ✅ Complete QC pipeline (fastp)
 - ✅ Save complete metaFlye output (assembly_info.txt, assembly_graph.gfa)
@@ -120,7 +120,7 @@ Assembler comparison
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 30-Second Quick Launch
 
@@ -140,7 +140,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 
 ---
 
-## 📊 Mode Comparison Summary
+## Mode Comparison Summary
 
 ### Long-read vs Short-read
 
@@ -163,7 +163,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 
 ---
 
-## 🎓 Three-Tool Design Philosophy (Long-read Mode)
+## Three-Tool Design Philosophy (Long-read Mode)
 
 ### Why "Parallel" Instead of "Sequential"?
 
@@ -225,7 +225,7 @@ Comprehensive Novel Virus Discovery
 
 ---
 
-## 🤖 Machine Learning for Novel Virus Discovery
+## Machine Learning for Novel Virus Discovery
 
 ### Why Machine Learning is Essential for Discovering New Viruses
 
@@ -315,7 +315,7 @@ Result: Cross-Validation
 
 ---
 
-## 💻 Installation Requirements
+## Installation Requirements
 
 ### System Requirements
 
@@ -425,7 +425,7 @@ apptainer {
 
 ---
 
-## 📊 Input Data Format
+## Input Data Format
 
 ### Short-read Data (Illumina)
 
@@ -459,7 +459,7 @@ sample2,/absolute/path/to/sample2_pacbio.fastq.gz
 
 ---
 
-## 🎮 Usage
+## Usage
 
 ### Method 1: Using SLURM Script (Recommended) 
 
@@ -539,7 +539,7 @@ rm -rf work/ .nextflow*
 
 ---
 
-## ⚙️ Parameter Configuration
+## Parameter Configuration
 
 ### Required Parameters
 
@@ -596,7 +596,7 @@ rm -rf work/ .nextflow*
 
 ---
 
-## 📁 Output Structure
+## Output Structure
 
 ### Long-read Mode + Three-Tool Analysis (Complete Output) 
 
@@ -673,7 +673,7 @@ results/
 
 ---
 
-## 📈 Results Interpretation
+## Results Interpretation
 
 ### Three-Tool Comprehensive Comparison Report (Most Important) 
 
@@ -838,7 +838,7 @@ For detailed documentation, see [ABUNDANCE_CALCULATION_README.md](./ABUNDANCE_CA
 
 ---
 
-## 🎯 Analysis Strategy
+## Analysis Strategy
 
 ### Recommended Analysis Workflow
 
@@ -915,7 +915,7 @@ awk -F',' 'NR==1 || $1 in consensus_ids' \
 
 ---
 
-## 🔬 Key Concepts
+## Key Concepts
 
 ### What is viralFlye?
 
@@ -969,7 +969,7 @@ awk -F',' 'NR==1 || $1 in consensus_ids' \
 
 ---
 
-## 🛠️ Performance and Resources
+## Performance and Resources
 
 ### Computational Resource Requirements
 
@@ -1003,7 +1003,7 @@ awk -F',' 'NR==1 || $1 in consensus_ids' \
 
 ---
 
-## 🐛 Frequently Asked Questions
+## Frequently Asked Questions
 
 ### Q1: What's the difference between short-read and long-read modes?
 
@@ -1195,7 +1195,7 @@ Three tools are **independent viral identification methods** (long-read mode onl
 
 ---
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Extract Viruses by Confidence Level
 
@@ -1282,7 +1282,7 @@ EOF
 
 ---
 
-## 🎓 Best Practices
+## Best Practices
 
 ### Parameter Recommendations (Different Research Goals)
 
@@ -1332,7 +1332,7 @@ virsorter2_min_score = 0.3
 
 ---
 
-## 🌟 Expected Results (ML-Enhanced Novel Virus Discovery) 
+## Expected Results (ML-Enhanced Novel Virus Discovery) 
 
 ### Typical Sample (Long-read Mode + Three Tools)
 
@@ -1381,7 +1381,7 @@ Runtime: 48-72 hours
 
 ---
 
-## 🎯 Workflow Execution Checklist
+## Workflow Execution Checklist
 
 ### Pre-run Checks
 
@@ -1431,7 +1431,7 @@ cat results_long/three_tools_comparison/*_comparison.txt
 
 ---
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Diagnostic Tools
 
@@ -1500,7 +1500,7 @@ withName: 'METAFLYE_ASSEMBLY' {
 
 ---
 
-## 📊 Performance Optimization
+## Performance Optimization
 
 ### 1. Use Fast Storage
 
@@ -1534,7 +1534,7 @@ rm -rf 00-assembly/ 10-consensus/ 20-repeat/ 30-contigger/ 40-polishing/
 
 ---
 
-## 📖 Citation
+## Citation
 
 If using this workflow for publication, please cite the following tools:
 
@@ -1558,7 +1558,7 @@ If using this workflow for publication, please cite the following tools:
 
 ---
 
-## 📝 Version Information
+## Version Information
 
 ### Current Version: 5.2.1
 
@@ -1591,7 +1591,7 @@ If using this workflow for publication, please cite the following tools:
 
 ---
 
-## 🎉 Feature Highlights (v5.2.1)
+## Feature Highlights (v5.2.1)
 
 ### 1. Three-Tool Parallel Analysis
 
@@ -1634,7 +1634,7 @@ Save complete metaFlye output:
 
 ---
 
-## ⚠️ Important Notes
+## Important Notes
 
 ### Must Clean Cache After Code Modification!
 
@@ -1669,7 +1669,7 @@ The workflow uses:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 Documentation and figures are released under CC BY 4.0.
@@ -1690,15 +1690,15 @@ Thanks to the development teams of the following tools:
 
 ---
 
-## 📞 Contact
+## Contact
 
-- 📧 Email: sihua.peng@uga.edu, Workflow code programmer  
-- 📧 Email: justin.bahl@uga.edu, Project supervisor  
-- 💻 Suggestion: [Click here!](https://github.com/pengsihua2023/rvdb-viral-metagenome-nf/issues/new)
+- Email: sihua.peng@uga.edu, Workflow code programmer  
+- Email: justin.bahl@uga.edu, Project supervisor  
+- Suggestion: [Click here!](https://github.com/pengsihua2023/rvdb-viral-metagenome-nf/issues/new)
 
 ---
 
-## 🔗 Related Resources
+## Related Resources
 
 ### Official Documentation
 
@@ -1720,7 +1720,7 @@ Thanks to the development teams of the following tools:
 
 ---
 
-## 📊 Workflow Diagram
+## Workflow Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -1769,7 +1769,7 @@ Thanks to the development teams of the following tools:
 
 ---
 
-## 🎓 Recommended Reading
+## Recommended Reading
 
 ### Viral Metagenomics
 
@@ -1791,7 +1791,7 @@ Thanks to the development teams of the following tools:
 
 ---
 
-## 🚀 Get Started Now
+## Get Started Now
 
 ```bash
 # 1. Clean cache (if previously run)
@@ -1803,4 +1803,5 @@ sbatch run_metagenome_assembly_classification_longread.sh
 # 3. Wait for completion, view results
 cat results_long/three_tools_comparison/*_comparison.txt
 ```
+
 
